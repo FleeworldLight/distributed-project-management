@@ -1,0 +1,198 @@
+version: '3.8'
+
+networks:
+  dpm-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  redis-data:
+
+x-common-env: &common-env
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka/
+  SPRING_REDIS_HOST: redis
+  SPRING_DATASOURCE_DRUID_MASTER_URL: jdbc:mysql://mysql:3306/laigeoffer-pmhub?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8
+  SPRING_DATASOURCE_DRUID_MASTER_USERNAME: root
+  SPRING_DATASOURCE_DRUID_MASTER_PASSWORD: "123456"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: dpm-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_DATABASE: laigeoffer-pmhub
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - dpm-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p123456"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  redis:
+    image: redis:7-alpine
+    container_name: dpm-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - dpm-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  eureka:
+    build:
+      context: ./pmhub-eureka
+      dockerfile: Dockerfile
+    container_name: dpm-eureka
+    ports:
+      - "8761:8761"
+    environment:
+      <<: *common-env
+      EUREKA_INSTANCE_HOSTNAME: eureka
+    networks:
+      - dpm-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  gateway:
+    build:
+      context: ./pmhub-gateway
+      dockerfile: Dockerfile
+    container_name: dpm-gateway
+    ports:
+      - "6880:6880"
+    environment:
+      <<: *common-env
+    depends_on:
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network
+
+  auth:
+    build:
+      context: ./pmhub-auth
+      dockerfile: Dockerfile
+    container_name: dpm-auth
+    ports:
+      - "6800:6800"
+    environment:
+      <<: *common-env
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network
+
+  system:
+    build:
+      context: ./pmhub-modules/pmhub-system
+      dockerfile: Dockerfile
+    container_name: dpm-system
+    ports:
+      - "6801:6801"
+    environment:
+      <<: *common-env
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network
+
+  project:
+    build:
+      context: ./pmhub-modules/pmhub-project
+      dockerfile: Dockerfile
+    container_name: dpm-project
+    ports:
+      - "6806:6806"
+    environment:
+      <<: *common-env
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network
+
+  workflow:
+    build:
+      context: ./pmhub-modules/pmhub-workflow
+      dockerfile: Dockerfile
+    container_name: dpm-workflow
+    ports:
+      - "6808:6808"
+    environment:
+      <<: *common-env
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network
+
+  job:
+    build:
+      context: ./pmhub-modules/pmhub-job
+      dockerfile: Dockerfile
+    container_name: dpm-job
+    ports:
+      - "6803:6803"
+    environment:
+      <<: *common-env
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network
+
+  monitor:
+    build:
+      context: ./pmhub-monitor
+      dockerfile: Dockerfile
+    container_name: dpm-monitor
+    ports:
+      - "6888:6888"
+    environment:
+      <<: *common-env
+      EUREKA_INSTANCE_METADATA_USER_NAME: admin
+      EUREKA_INSTANCE_METADATA_USER_PASSWORD: "123456"
+    depends_on:
+      eureka:
+        condition: service_healthy
+    networks:
+      - dpm-network

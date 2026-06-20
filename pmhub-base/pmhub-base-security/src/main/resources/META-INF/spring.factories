@@ -1,0 +1,11 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.team.dpm.base.security.aspect.InnerAuthAspect,\
+com.team.dpm.base.security.aspect.PreAuthorizeAspect,\
+com.team.dpm.base.security.service.TokenService,\
+com.team.dpm.base.security.handle.GlobalExceptionHandler,\
+com.team.dpm.base.security.config.WebMvcConfig,\
+com.team.dpm.base.security.aspect.LogAspect,\
+com.team.dpm.base.core.config.ResourcesConfig,\
+com.team.dpm.base.security.service.redisson.RedissonDistributedLock,\
+com.team.dpm.base.security.aspect.DistributedLockAspect,\
+com.team.dpm.base.security.config.RedissonConfig

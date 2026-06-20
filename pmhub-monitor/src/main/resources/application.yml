@@ -1,0 +1,27 @@
+server:
+  port: 6888
+
+spring:
+  application:
+    name: pmhub-monitor
+  security:
+    user:
+      name: admin
+      password: 123456
+  boot:
+    admin:
+      ui:
+        title: DPM 监控中心
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    metadata-map:
+      user.name: admin
+      user.password: 123456
+
+logging:
+  file:
+    name: logs/${spring.application.name}/info.log

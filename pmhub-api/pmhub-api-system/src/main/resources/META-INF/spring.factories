@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.team.dpm.api.system.factory.UserFeginFallbackFactory,\
+com.team.dpm.api.system.factory.LogFeignFallbackFactory

@@ -1,0 +1,11 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.team.dpm.base.core.utils.spring.SpringUtils,\
+com.team.dpm.base.core.config.PmhubConfig,\
+com.team.dpm.base.core.config.MetaObjectHandlerConfig,\
+com.team.dpm.base.core.aspectj.RateLimiterAspect,\
+com.team.dpm.base.core.config.JacksonConfig,\
+com.team.dpm.base.core.config.MybatisPlusConfig,\
+com.team.dpm.base.core.config.ServerConfig,\
+com.team.dpm.base.core.config.ThreadPoolConfig,\
+com.team.dpm.base.core.config.redis.RedisConfig,\
+com.team.dpm.base.core.config.redis.RedisService
