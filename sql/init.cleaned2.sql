@@ -1177,58 +1177,58 @@ CREATE TABLE `FLW_RU_BATCH_PART`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table`;
 CREATE TABLE `gen_table`  (
-                              `table_id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
-                              `table_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '表名称',
-                              `table_comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '表描述',
-                              `sub_table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '关联子表的表名',
-                              `sub_table_fk_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '子表关联的外键名',
-                              `class_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '实体类名称',
-                              `tpl_category` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'crud' COMMENT '使用的模板（crud单表操作 tree树表操作）',
-                              `package_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '生成包路径',
-                              `module_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '生成模块名',
-                              `business_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '生成业务名',
-                              `function_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '生成功能名',
-                              `function_author` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '生成功能作者',
-                              `gen_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '生成代码方式（0zip压缩包 1自定义路径）',
-                              `gen_path` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '/' COMMENT '生成路径（不填默认项目路径）',
-                              `options` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '其它生成选项',
-                              `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                              `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                              `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                              `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                              `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                              `table_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                              `table_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                              `table_comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                              `sub_table_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `sub_table_fk_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `class_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                              `tpl_category` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'crud' COMMENT '',
+                              `package_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `module_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `business_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `function_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `function_author` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `gen_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                              `gen_path` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '/' COMMENT '',
+                              `options` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                              `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                              `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                              `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                              `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                              `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                               PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成业务表';
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for gen_table_column
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table_column`;
 CREATE TABLE `gen_table_column`  (
-                                     `column_id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
-                                     `table_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '归属表编号',
-                                     `column_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '列名称',
-                                     `column_comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '列描述',
-                                     `column_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '列类型',
-                                     `java_type` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'JAVA类型',
-                                     `java_field` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'JAVA字段名',
-                                     `is_pk` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否主键（1是）',
-                                     `is_increment` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否自增（1是）',
-                                     `is_required` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否必填（1是）',
-                                     `is_insert` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否为插入字段（1是）',
-                                     `is_edit` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否编辑字段（1是）',
-                                     `is_list` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否列表字段（1是）',
-                                     `is_query` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否查询字段（1是）',
-                                     `query_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'EQ' COMMENT '查询方式（等于、不等于、大于、小于、范围）',
-                                     `html_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）',
-                                     `dict_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '字典类型',
-                                     `sort` int NULL DEFAULT NULL COMMENT '排序',
-                                     `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                                     `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                     `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                                     `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+                                     `column_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                                     `table_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `column_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `column_comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `column_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `java_type` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `java_field` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_pk` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_increment` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_required` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_insert` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_edit` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_list` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `is_query` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `query_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'EQ' COMMENT '',
+                                     `html_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                     `dict_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                     `sort` int NULL DEFAULT NULL COMMENT '',
+                                     `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                     `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                     `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                     `update_time` datetime NULL DEFAULT NULL COMMENT '',
                                      PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成业务表字段';
+) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_approval_template
@@ -1236,8 +1236,8 @@ CREATE TABLE `gen_table_column`  (
 DROP TABLE IF EXISTS `pmhub_approval_template`;
 CREATE TABLE `pmhub_approval_template`  (
                                             `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                            `template_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '审批模板id',
-                                            `template_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '审批模板名称',
+                                            `template_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                            `template_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
                                             `file_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                             `path_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                             `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -1252,21 +1252,21 @@ CREATE TABLE `pmhub_approval_template`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_async`;
 CREATE TABLE `pmhub_async`  (
-                                `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务id',
-                                `async_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务类型',
-                                `async_name` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务名称',
-                                `async_desc` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '任务描述',
-                                `create_time` datetime NOT NULL COMMENT '任务创建时间',
-                                `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '创建者',
-                                `update_time` datetime NOT NULL COMMENT '最后汇报时间',
+                                `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `async_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `async_name` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `async_desc` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                `create_time` datetime NOT NULL COMMENT '',
+                                `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `update_time` datetime NOT NULL COMMENT '',
                                 `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-                                `async_schedule` decimal(10, 0) NULL DEFAULT NULL COMMENT '进度（0-100）',
-                                `finish_time` datetime NULL DEFAULT NULL COMMENT '结束时间',
-                                `async_status` int NOT NULL COMMENT '任务当前状态（0 进行中 1 已失败 2 已完成）',
-                                `async_log` json NULL COMMENT '任务执行信息',
-                                `file` varchar(10240) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '附件地址',
+                                `async_schedule` decimal(10, 0) NULL DEFAULT NULL COMMENT '',
+                                `finish_time` datetime NULL DEFAULT NULL COMMENT '',
+                                `async_status` int NOT NULL COMMENT '',
+                                `async_log` json NULL COMMENT '',
+                                `file` varchar(10240) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                 `deleted` int NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '离线任务';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_document_data
@@ -1274,19 +1274,19 @@ CREATE TABLE `pmhub_async`  (
 DROP TABLE IF EXISTS `pmhub_document_data`;
 CREATE TABLE `pmhub_document_data`  (
                                         `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                        `module_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '模块名称',
-                                        `module_type` int NULL DEFAULT NULL COMMENT '模块类型',
-                                        `document_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '单据类型',
-                                        `document_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '单据名称',
-                                        `sort` int NULL DEFAULT NULL COMMENT '排序',
-                                        `audited` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否审核',
-                                        `template_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '审批模板id',
+                                        `module_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `module_type` int NULL DEFAULT NULL COMMENT '',
+                                        `document_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `document_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `sort` int NULL DEFAULT NULL COMMENT '',
+                                        `audited` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                        `template_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                         `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                         `created_time` datetime NULL DEFAULT NULL,
                                         `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                         `updated_time` datetime NULL DEFAULT NULL,
-                                        `type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型',
-                                        `document_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '单据类型id',
+                                        `type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                        `document_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
                                         PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
@@ -1296,9 +1296,9 @@ CREATE TABLE `pmhub_document_data`  (
 DROP TABLE IF EXISTS `pmhub_document_type`;
 CREATE TABLE `pmhub_document_type`  (
                                         `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                        `type_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '分类名称',
-                                        `pid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '父id',
-                                        `sort` int NULL DEFAULT NULL COMMENT '排序',
+                                        `type_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `pid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `sort` int NULL DEFAULT NULL COMMENT '',
                                         `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                         `created_time` datetime NULL DEFAULT NULL,
                                         `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -1306,37 +1306,37 @@ CREATE TABLE `pmhub_document_type`  (
                                         `joint_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                         `type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                         PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '单据分类';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_materials
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_materials`;
 CREATE TABLE `pmhub_materials`  (
-                                    `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '记录id',
-                                    `code` int NULL DEFAULT NULL COMMENT '五级代码-物料流水编号',
-                                    `materials_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '物料名称',
-                                    `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目id',
-                                    `materials_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '物料类别id',
-                                    `norms` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '规格',
-                                    `model` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '型号',
-                                    `unit` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '型号',
-                                    `unit_price` decimal(15, 3) NOT NULL COMMENT '单价',
-                                    `color` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '颜色',
-                                    `weight` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '重量',
-                                    `quality_guarantee_period` int NULL DEFAULT NULL COMMENT '质保期（天）',
-                                    `lot_number` tinyint(1) NULL DEFAULT NULL COMMENT '是否有批号',
-                                    `base_storehouse_count` decimal(15, 3) NOT NULL COMMENT '期初库存',
-                                    `remarks` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
-                                    `part_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '零件编码',
-                                    `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '创建者',
-                                    `create_time` datetime NOT NULL COMMENT '创建时间',
-                                    `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '更新者',
-                                    `update_time` datetime NOT NULL COMMENT '更新时间',
-                                    `deleted` int NOT NULL COMMENT '是否删除（1：已删除，0：未删除）',
+                                    `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                    `code` int NULL DEFAULT NULL COMMENT '',
+                                    `materials_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                    `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `materials_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                    `norms` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `model` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `unit` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `unit_price` decimal(15, 3) NOT NULL COMMENT '',
+                                    `color` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `weight` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `quality_guarantee_period` int NULL DEFAULT NULL COMMENT '',
+                                    `lot_number` tinyint(1) NULL DEFAULT NULL COMMENT '',
+                                    `base_storehouse_count` decimal(15, 3) NOT NULL COMMENT '',
+                                    `remarks` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `part_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                    `create_time` datetime NOT NULL COMMENT '',
+                                    `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                    `update_time` datetime NOT NULL COMMENT '',
+                                    `deleted` int NOT NULL COMMENT '',
                                     PRIMARY KEY (`id`) USING BTREE,
                                     UNIQUE INDEX `code_and_type_pk`(`code` ASC, `materials_type_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '物料明细';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_my_apply
@@ -1344,19 +1344,19 @@ CREATE TABLE `pmhub_materials`  (
 DROP TABLE IF EXISTS `pmhub_my_apply`;
 CREATE TABLE `pmhub_my_apply`  (
                                    `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                   `sp_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '审批编号',
-                                   `data_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '单据标题',
-                                   `data_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '单据类型',
-                                   `data_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '单据类型id',
-                                   `template_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模板id',
-                                   `sp_status` int NOT NULL COMMENT '审批状态',
-                                   `apply_time` datetime NULL DEFAULT NULL COMMENT '提交日期',
+                                   `sp_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                   `data_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                   `data_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                   `data_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                   `template_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                   `sp_status` int NOT NULL COMMENT '',
+                                   `apply_time` datetime NULL DEFAULT NULL COMMENT '',
                                    `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                    `created_time` datetime NULL DEFAULT NULL,
                                    `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                    `updated_time` datetime NULL DEFAULT NULL,
-                                   `extra_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目id、任务id等',
-                                   `type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '类型project、task',
+                                   `extra_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                   `type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                    PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
@@ -1366,9 +1366,9 @@ CREATE TABLE `pmhub_my_apply`  (
 DROP TABLE IF EXISTS `pmhub_oauth2_agree`;
 CREATE TABLE `pmhub_oauth2_agree`  (
                                        `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-                                       `user_id` bigint NULL DEFAULT NULL COMMENT '用户id',
-                                       `client_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '应用id'
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '已允许单点登录的用户及对应应用';
+                                       `user_id` bigint NULL DEFAULT NULL COMMENT '',
+                                       `client_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT ''
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_oauth2_client
@@ -1376,10 +1376,10 @@ CREATE TABLE `pmhub_oauth2_agree`  (
 DROP TABLE IF EXISTS `pmhub_oauth2_client`;
 CREATE TABLE `pmhub_oauth2_client`  (
                                         `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-                                        `client_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '应用名称',
-                                        `client_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '应用id',
-                                        `client_secret` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '应用secret',
-                                        `img` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '应用图标'
+                                        `client_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `client_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `client_secret` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `img` varchar(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT ''
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- ----------------------------
@@ -1387,168 +1387,168 @@ CREATE TABLE `pmhub_oauth2_client`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project`;
 CREATE TABLE `pmhub_project`  (
-                                  `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                  `project_code` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目编码',
-                                  `project_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目名称',
-                                  `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '描述',
-                                  `close_begin_time` datetime NULL DEFAULT NULL COMMENT '项目开始时间',
-                                  `close_end_time` datetime NULL DEFAULT NULL COMMENT '项目结束时间',
-                                  `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '封面',
-                                  `stage_code` int NOT NULL DEFAULT 0 COMMENT '项目阶段 默认是0',
-                                  `type` tinyint(1) NOT NULL DEFAULT 0 COMMENT '项目类型 是否私有 0-公开 1-私有',
-                                  `prefix` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目编号前缀',
-                                  `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除 0-否 1-删除',
-                                  `deleted_time` datetime NULL DEFAULT NULL COMMENT '删除时间',
-                                  `archived` tinyint(1) NULL DEFAULT NULL COMMENT '是否归档 0-否 1-归档',
-                                  `archived_time` datetime NULL DEFAULT NULL COMMENT '归档时间',
-                                  `published` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否发布 0-否 1-发布',
-                                  `project_process` decimal(5, 2) NOT NULL DEFAULT 0.00 COMMENT '项目进度',
-                                  `created_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                  `created_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                  `updated_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
-                                  `updated_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                  `user_id` bigint NULL DEFAULT NULL COMMENT '项目负责人',
-                                  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '项目状态 默认0-未开始',
-                                  `auto_update_process` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否自动更新进度 0-否 1-是',
-                                  `open_begin_time` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否开启任务开始时间',
-                                  `open_task_private` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否开启新任务默认开启隐私模式',
-                                  `msg_notify` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否开启消息提醒',
-                                  `notify_day` int NOT NULL DEFAULT 2 COMMENT '提醒的天数',
-                                  `open_prefix` tinyint(1) NULL DEFAULT 0 COMMENT '是否开启项目前缀',
-                                  `project_stage_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '阶段id',
+                                  `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                  `project_code` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                  `project_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                  `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `close_begin_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `close_end_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `stage_code` int NOT NULL DEFAULT 0 COMMENT '',
+                                  `type` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `prefix` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `deleted_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `archived` tinyint(1) NULL DEFAULT NULL COMMENT '',
+                                  `archived_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `published` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `project_process` decimal(5, 2) NOT NULL DEFAULT 0.00 COMMENT '',
+                                  `created_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `created_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `updated_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `updated_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `user_id` bigint NULL DEFAULT NULL COMMENT '',
+                                  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `auto_update_process` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `open_begin_time` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `open_task_private` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `msg_notify` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                  `notify_day` int NOT NULL DEFAULT 2 COMMENT '',
+                                  `open_prefix` tinyint(1) NULL DEFAULT 0 COMMENT '',
+                                  `project_stage_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_collection
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_collection`;
 CREATE TABLE `pmhub_project_collection`  (
-                                             `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                             `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                             `created_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                             `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
-                                             `updated_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                             `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目id',
-                                             `user_id` bigint NULL DEFAULT NULL COMMENT '用户id',
+                                             `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                             `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                             `created_time` datetime NULL DEFAULT NULL COMMENT '',
+                                             `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                             `updated_time` datetime NULL DEFAULT NULL COMMENT '',
+                                             `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                             `user_id` bigint NULL DEFAULT NULL COMMENT '',
                                              PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目-收藏表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_file
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_file`;
 CREATE TABLE `pmhub_project_file`  (
-                                       `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                       `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '文件归属类型 task 或者 project',
-                                       `pt_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'type是task 对应就是task的id type是project 对应就是project的id',
-                                       `file_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
-                                       `file_size` decimal(11, 2) NULL DEFAULT NULL COMMENT '文件大小',
-                                       `extension` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '扩展名',
-                                       `file_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件完整地址',
-                                       `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除 0-否 1-删除',
-                                       `deleted_time` datetime NULL DEFAULT NULL COMMENT '删除时间',
-                                       `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                       `created_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                       `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
-                                       `updated_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                       `user_id` bigint NULL DEFAULT NULL COMMENT '上传人id',
-                                       `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目id',
+                                       `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `pt_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `file_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `file_size` decimal(11, 2) NULL DEFAULT NULL COMMENT '',
+                                       `extension` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `file_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                       `deleted_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `created_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `updated_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `user_id` bigint NULL DEFAULT NULL COMMENT '',
+                                       `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
                                        `path_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                        PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目或任务附件表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_log
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_log`;
 CREATE TABLE `pmhub_project_log`  (
-                                      `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                      `user_id` bigint NOT NULL COMMENT '操作人id',
-                                      `type` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型 project 或者 task',
-                                      `operate_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '操作类型',
-                                      `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '操作内容',
-                                      `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
-                                      `pt_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目或者任务id',
+                                      `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `user_id` bigint NOT NULL COMMENT '',
+                                      `type` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `operate_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '',
+                                      `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                      `pt_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
                                       `to_user_id` bigint NULL DEFAULT NULL,
                                       `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                       `created_time` datetime NULL DEFAULT NULL,
                                       `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                       `updated_time` datetime NULL DEFAULT NULL,
-                                      `log_type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1-动态 2-交付物 3-评论',
-                                      `file_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '文件地址',
+                                      `log_type` tinyint(1) NOT NULL DEFAULT 1 COMMENT '',
+                                      `file_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                       `icon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-                                      `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目id',
+                                      `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
                                       PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目-任务日志';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_member
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_member`;
 CREATE TABLE `pmhub_project_member`  (
-                                         `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                         `pt_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目或者任务id',
-                                         `user_id` bigint NOT NULL COMMENT '用户id',
-                                         `joined_time` datetime NULL DEFAULT NULL COMMENT '加入时间',
-                                         `created_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                         `created_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                         `updated_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
-                                         `updated_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                         `type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '类型是项目还是任务 task project',
-                                         `creator` tinyint(1) NULL DEFAULT 0 COMMENT '是否创建者',
+                                         `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                         `pt_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                         `user_id` bigint NOT NULL COMMENT '',
+                                         `joined_time` datetime NULL DEFAULT NULL COMMENT '',
+                                         `created_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                         `created_time` datetime NULL DEFAULT NULL COMMENT '',
+                                         `updated_by` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                         `updated_time` datetime NULL DEFAULT NULL COMMENT '',
+                                         `type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                         `creator` tinyint(1) NULL DEFAULT 0 COMMENT '',
                                          PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目-任务成员';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_stage
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_stage`;
 CREATE TABLE `pmhub_project_stage`  (
-                                        `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                        `stage_code` int NOT NULL COMMENT '阶段编码',
-                                        `stage_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '阶段名称',
-                                        `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '阶段描述',
-                                        `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目id',
-                                        `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除 0-否 1-删除',
-                                        `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                        `created_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                        `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
-                                        `updated_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+                                        `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                        `stage_code` int NOT NULL COMMENT '',
+                                        `stage_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                        `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                        `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                        `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `created_time` datetime NULL DEFAULT NULL COMMENT '',
+                                        `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                        `updated_time` datetime NULL DEFAULT NULL COMMENT '',
                                         PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目阶段';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_task
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_task`;
 CREATE TABLE `pmhub_project_task`  (
-                                       `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                       `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                       `created_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                       `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新人',
-                                       `updated_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                       `task_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '任务名称',
-                                       `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目id',
-                                       `task_priority` tinyint(1) NOT NULL DEFAULT 0 COMMENT '任务优先级',
-                                       `user_id` bigint NOT NULL COMMENT '用户id',
-                                       `project_stage_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目阶段id',
-                                       `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '任务描述',
-                                       `begin_time` datetime NULL DEFAULT NULL COMMENT '预计开始时间',
-                                       `end_time` datetime NULL DEFAULT NULL COMMENT '预计结束时间',
-                                       `close_time` datetime NULL DEFAULT NULL COMMENT '截止时间',
-                                       `task_pid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '任务父节点',
-                                       `assign_to` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '指派给谁',
-                                       `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '任务状态',
-                                       `execute_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '执行状态',
-                                       `task_process` decimal(5, 2) NOT NULL DEFAULT 0.00 COMMENT '任务进度',
-                                       `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除',
+                                       `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `created_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `updated_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `task_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `task_priority` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                       `user_id` bigint NOT NULL COMMENT '',
+                                       `project_stage_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                       `description` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `begin_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `end_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `close_time` datetime NULL DEFAULT NULL COMMENT '',
+                                       `task_pid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `assign_to` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                       `execute_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
+                                       `task_process` decimal(5, 2) NOT NULL DEFAULT 0.00 COMMENT '',
+                                       `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
                                        `deleted_time` datetime NULL DEFAULT NULL,
-                                       `task_flow` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '所属流程',
-                                       `task_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '任务类型id',
+                                       `task_flow` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                       `task_type_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                        PRIMARY KEY (`id`) USING BTREE,
                                        INDEX `idx`(`id` ASC, `project_id` ASC, `user_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目-任务表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_task_notify
@@ -1556,15 +1556,15 @@ CREATE TABLE `pmhub_project_task`  (
 DROP TABLE IF EXISTS `pmhub_project_task_notify`;
 CREATE TABLE `pmhub_project_task_notify`  (
                                               `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                              `task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '任务id',
-                                              `user_id` int NULL DEFAULT NULL COMMENT '用户id',
-                                              `user_wx_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '企业微信id',
-                                              `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目id',
-                                              `overdue` tinyint(1) NULL DEFAULT NULL COMMENT '是否逾期 0-否 1-是',
+                                              `task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                              `user_id` int NULL DEFAULT NULL COMMENT '',
+                                              `user_wx_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                              `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                              `overdue` tinyint(1) NULL DEFAULT NULL COMMENT '',
                                               `close_time` datetime NULL DEFAULT NULL,
                                               `task_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                               PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '任务提醒表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_project_task_process
@@ -1572,18 +1572,18 @@ CREATE TABLE `pmhub_project_task_notify`  (
 DROP TABLE IF EXISTS `pmhub_project_task_process`;
 CREATE TABLE `pmhub_project_task_process`  (
                                                `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                               `extra_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目任务id',
-                                               `approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '是否需要审批',
-                                               `instance_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '流程实例id',
-                                               `deployment_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '部署id',
-                                               `definition_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '流程定义id',
+                                               `extra_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                               `approved` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                               `instance_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                               `deployment_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                               `definition_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                                `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                                `created_time` datetime NULL DEFAULT NULL,
                                                `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                                `updated_time` datetime NULL DEFAULT NULL,
-                                               `type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '类型task/project等',
-                                               `task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '流程任务id',
-                                               `url` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '详情地址',
+                                               `type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                               `task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                               `url` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                                PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
@@ -1592,72 +1592,72 @@ CREATE TABLE `pmhub_project_task_process`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_project_task_work_time`;
 CREATE TABLE `pmhub_project_task_work_time`  (
-                                                 `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                                 `project_task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务id',
-                                                 `user_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户id',
-                                                 `work_time` decimal(5, 2) NULL DEFAULT NULL COMMENT '工时',
-                                                 `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '项目id',
+                                                 `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                                 `project_task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                                 `user_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                                 `work_time` decimal(5, 2) NULL DEFAULT NULL COMMENT '',
+                                                 `project_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
                                                  `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                                  `created_time` datetime NULL DEFAULT NULL,
                                                  `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                                  `updated_time` datetime NULL DEFAULT NULL,
                                                  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '任务工时表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_public_file
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_public_file`;
 CREATE TABLE `pmhub_public_file`  (
-                                      `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                      `file_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
-                                      `file_size` bigint NULL DEFAULT NULL COMMENT '文件大小',
-                                      `extension` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '扩展名',
-                                      `file_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件下载地址',
-                                      `path_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件物理路径',
-                                      `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                      `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                      `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新、删除人',
-                                      `update_time` datetime NULL DEFAULT NULL COMMENT '更新、删除时间',
-                                      `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除 0-否 1-删除',
+                                      `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `file_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `file_size` bigint NULL DEFAULT NULL COMMENT '',
+                                      `extension` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `file_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `path_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                      `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                      `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                      `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                      `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                      `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
                                       PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '不指定目标的上传文件';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_public_file_cache
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_public_file_cache`;
 CREATE TABLE `pmhub_public_file_cache`  (
-                                            `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                            `file_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
-                                            `file_size` bigint NULL DEFAULT NULL COMMENT '文件大小',
-                                            `extension` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '扩展名',
-                                            `file_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件下载地址',
-                                            `path_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件物理路径',
-                                            `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                            `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                            `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新、删除人',
-                                            `update_time` datetime NULL DEFAULT NULL COMMENT '更新、删除时间',
-                                            `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除 0-否 1-删除',
+                                            `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                            `file_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                            `file_size` bigint NULL DEFAULT NULL COMMENT '',
+                                            `extension` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                            `file_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                            `path_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                            `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                            `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                            `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                            `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                            `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
                                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '不指定目标的上传文件缓存表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_public_file_link
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_public_file_link`;
 CREATE TABLE `pmhub_public_file_link`  (
-                                           `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '主键id',
-                                           `object_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文件名称',
-                                           `object_type` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '关联对象类型',
-                                           `file_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '扩展名',
-                                           `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '创建人',
-                                           `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                           `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '更新、删除人',
-                                           `update_time` datetime NULL DEFAULT NULL COMMENT '更新、删除时间',
-                                           `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否删除 0-否 1-删除',
+                                           `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                           `object_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                           `object_type` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                           `file_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                           `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                           `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                           `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                           `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                           `deleted` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
                                            PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '文件引用关联表，所有未指定关系的上传文件都应该在这里指定关联关系，如果有文件在这个关联表中没有任何关联关系，则会被定时任务物理删除';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_task_message_deal
@@ -1677,8 +1677,8 @@ CREATE TABLE `pmhub_task_message_deal`  (
 DROP TABLE IF EXISTS `pmhub_task_type`;
 CREATE TABLE `pmhub_task_type`  (
                                     `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                    `type_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '类型名称',
-                                    `sort` int NOT NULL DEFAULT 1 COMMENT '排序',
+                                    `type_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `sort` int NOT NULL DEFAULT 1 COMMENT '',
                                     `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                     `created_time` datetime NULL DEFAULT NULL,
                                     `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -1692,90 +1692,90 @@ CREATE TABLE `pmhub_task_type`  (
 DROP TABLE IF EXISTS `pmhub_template`;
 CREATE TABLE `pmhub_template`  (
                                    `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                   `file` longblob NOT NULL COMMENT '文件二进制数据',
+                                   `file` longblob NOT NULL COMMENT '',
                                    PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '模板文件';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_wf_cancel
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_wf_cancel`;
 CREATE TABLE `pmhub_wf_cancel`  (
-                                    `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'id',
-                                    `inst_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'inst_id'
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户发起取消流程';
+                                    `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                    `inst_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT ''
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_wf_category
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_wf_category`;
 CREATE TABLE `pmhub_wf_category`  (
-                                      `category_id` bigint NOT NULL COMMENT '流程分类id',
-                                      `category_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '流程分类名称',
-                                      `code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '分类编码',
-                                      `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '备注',
-                                      `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                                      `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                      `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                                      `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                      `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
+                                      `category_id` bigint NOT NULL COMMENT '',
+                                      `category_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                      `code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                      `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                      `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                      `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                      `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                      `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                      `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
                                       PRIMARY KEY (`category_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '流程分类表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_wf_copy
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_wf_copy`;
 CREATE TABLE `pmhub_wf_copy`  (
-                                  `copy_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '抄送主键',
-                                  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '抄送标题',
-                                  `process_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '流程主键',
-                                  `process_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '流程名称',
-                                  `category_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '流程分类主键',
-                                  `deployment_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '部署主键',
-                                  `instance_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '流程实例主键',
-                                  `task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '任务主键',
-                                  `user_id` bigint NULL DEFAULT NULL COMMENT '用户主键',
-                                  `originator_id` bigint NULL DEFAULT NULL COMMENT '发起人主键',
-                                  `originator_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '发起人名称',
-                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                                  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                                  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
+                                  `copy_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `process_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `process_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `category_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `deployment_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `instance_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `task_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `user_id` bigint NULL DEFAULT NULL COMMENT '',
+                                  `originator_id` bigint NULL DEFAULT NULL COMMENT '',
+                                  `originator_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
                                   PRIMARY KEY (`copy_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '流程抄送表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_wf_deploy_form
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_wf_deploy_form`;
 CREATE TABLE `pmhub_wf_deploy_form`  (
-                                         `deploy_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '流程实例主键',
-                                         `form_key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '表单Key',
-                                         `node_key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '节点Key',
-                                         `form_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '表单名称',
-                                         `node_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '节点名称',
-                                         `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '表单内容',
+                                         `deploy_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                         `form_key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                         `node_key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                         `form_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                         `node_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                         `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '',
                                          PRIMARY KEY (`deploy_id`, `form_key`, `node_key`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '流程实例关联表单';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_wf_form
 -- ----------------------------
 DROP TABLE IF EXISTS `pmhub_wf_form`;
 CREATE TABLE `pmhub_wf_form`  (
-                                  `form_id` bigint NOT NULL COMMENT '表单主键',
-                                  `form_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '表单名称',
-                                  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '表单内容',
-                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                                  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                                  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
-                                  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
+                                  `form_id` bigint NOT NULL COMMENT '',
+                                  `form_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '',
+                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
                                   PRIMARY KEY (`form_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '流程表单信息表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Table structure for pmhub_wf_model_deploy
@@ -1783,8 +1783,8 @@ CREATE TABLE `pmhub_wf_form`  (
 DROP TABLE IF EXISTS `pmhub_wf_model_deploy`;
 CREATE TABLE `pmhub_wf_model_deploy`  (
                                           `id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                          `model_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '模型id',
-                                          `deployed` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0-未部署 1-已部署',
+                                          `model_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                          `deployed` tinyint(1) NOT NULL DEFAULT 0 COMMENT '',
                                           `created_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
                                           `created_time` datetime NULL DEFAULT NULL,
                                           `updated_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -1797,18 +1797,18 @@ CREATE TABLE `pmhub_wf_model_deploy`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE `sys_config`  (
-                               `config_id` int NOT NULL AUTO_INCREMENT COMMENT '参数主键',
-                               `config_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '参数名称',
-                               `config_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '参数键名',
-                               `config_value` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '参数键值',
-                               `config_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'N' COMMENT '系统内置（Y是 N否）',
-                               `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                               `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                               `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                               `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                               `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                               `config_id` int NOT NULL AUTO_INCREMENT COMMENT '',
+                               `config_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `config_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `config_value` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `config_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'N' COMMENT '',
+                               `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                               `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                               `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '参数配置表';
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_config
@@ -1823,22 +1823,22 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept`  (
-                             `dept_id` bigint NOT NULL AUTO_INCREMENT COMMENT '部门id',
-                             `parent_id` bigint NULL DEFAULT 0 COMMENT '父部门id',
-                             `ancestors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '祖级列表',
-                             `dept_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '部门名称',
-                             `order_num` int NULL DEFAULT 0 COMMENT '显示顺序',
-                             `leader` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '负责人',
-                             `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '联系电话',
-                             `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '邮箱',
-                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '部门状态（0正常 1停用）',
-                             `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                             `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                             `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+                             `dept_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                             `parent_id` bigint NULL DEFAULT 0 COMMENT '',
+                             `ancestors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `dept_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `order_num` int NULL DEFAULT 0 COMMENT '',
+                             `leader` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `update_time` datetime NULL DEFAULT NULL COMMENT '',
                              PRIMARY KEY (`dept_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 217 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '部门表';
+) ENGINE = InnoDB AUTO_INCREMENT = 217 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 
@@ -1855,22 +1855,22 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_data`;
 CREATE TABLE `sys_dict_data`  (
-                                  `dict_code` bigint NOT NULL AUTO_INCREMENT COMMENT '字典编码',
-                                  `dict_sort` int NULL DEFAULT 0 COMMENT '字典排序',
-                                  `dict_label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '字典标签',
-                                  `dict_value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '字典键值',
-                                  `dict_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '字典类型',
-                                  `css_class` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '样式属性（其他样式扩展）',
-                                  `list_class` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '表格回显样式',
-                                  `is_default` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'N' COMMENT '是否默认（Y是 N否）',
-                                  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '状态（0正常 1停用）',
-                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                                  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                                  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                                  `dict_code` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                                  `dict_sort` int NULL DEFAULT 0 COMMENT '',
+                                  `dict_label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `dict_value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `dict_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `css_class` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `list_class` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                  `is_default` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'N' COMMENT '',
+                                  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                   PRIMARY KEY (`dict_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 120 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字典数据表';
+) ENGINE = InnoDB AUTO_INCREMENT = 120 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 
@@ -1887,18 +1887,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_type`;
 CREATE TABLE `sys_dict_type`  (
-                                  `dict_id` bigint NOT NULL AUTO_INCREMENT COMMENT '字典主键',
-                                  `dict_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '字典名称',
-                                  `dict_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '字典类型',
-                                  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '状态（0正常 1停用）',
-                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                                  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                                  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                                  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                                  `dict_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                                  `dict_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `dict_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                                  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                  `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                                  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                   PRIMARY KEY (`dict_id`) USING BTREE,
                                   UNIQUE INDEX `dict_type`(`dict_type` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字典类型表';
+) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 
@@ -1915,21 +1915,21 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_job`;
 CREATE TABLE `sys_job`  (
-                            `job_id` bigint NOT NULL AUTO_INCREMENT COMMENT '任务ID',
-                            `job_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '任务名称',
-                            `job_group` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'DEFAULT' COMMENT '任务组名',
-                            `invoke_target` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '调用目标字符串',
-                            `cron_expression` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT 'cron执行表达式',
-                            `misfire_policy` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '3' COMMENT '计划执行错误策略（1立即执行 2执行一次 3放弃执行）',
-                            `concurrent` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '是否并发执行（0允许 1禁止）',
-                            `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '状态（0正常 1暂停）',
-                            `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                            `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                            `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                            `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                            `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '备注信息',
+                            `job_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                            `job_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '',
+                            `job_group` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'DEFAULT' COMMENT '',
+                            `invoke_target` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                            `cron_expression` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                            `misfire_policy` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '3' COMMENT '',
+                            `concurrent` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '',
+                            `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                            `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                            `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                            `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                            `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                            `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
                             PRIMARY KEY (`job_id`, `job_name`, `job_group`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '定时任务调度表';
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 -- ----------------------------
@@ -1945,16 +1945,16 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_job_log`;
 CREATE TABLE `sys_job_log`  (
-                                `job_log_id` bigint NOT NULL AUTO_INCREMENT COMMENT '任务日志ID',
-                                `job_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务名称',
-                                `job_group` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '任务组名',
-                                `invoke_target` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '调用目标字符串',
-                                `job_message` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '日志信息',
-                                `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '执行状态（0正常 1失败）',
-                                `exception_info` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '异常信息',
-                                `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+                                `job_log_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                                `job_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `job_group` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `invoke_target` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                                `job_message` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                                `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                                `exception_info` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                `create_time` datetime NULL DEFAULT NULL COMMENT '',
                                 PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '定时任务调度日志表';
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -1969,17 +1969,17 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_logininfor`;
 CREATE TABLE `sys_logininfor`  (
-                                   `info_id` bigint NOT NULL AUTO_INCREMENT COMMENT '访问ID',
-                                   `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '用户账号',
-                                   `ipaddr` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '登录IP地址',
-                                   `login_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '登录地点',
-                                   `browser` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '浏览器类型',
-                                   `os` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '操作系统',
-                                   `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '登录状态（0成功 1失败）',
-                                   `msg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '提示消息',
-                                   `login_time` datetime NULL DEFAULT NULL COMMENT '访问时间',
+                                   `info_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                                   `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                   `ipaddr` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                   `login_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                   `browser` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                   `os` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                   `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                                   `msg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                   `login_time` datetime NULL DEFAULT NULL COMMENT '',
                                    PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8873 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录';
+) ENGINE = InnoDB AUTO_INCREMENT = 8873 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 -- ----------------------------
@@ -1994,34 +1994,34 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu`  (
-                             `menu_id` bigint NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
-                             `menu_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '菜单名称',
-                             `parent_id` bigint NULL DEFAULT 0 COMMENT '父菜单ID',
-                             `order_num` int NULL DEFAULT 0 COMMENT '显示顺序',
-                             `path` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '路由地址',
-                             `component` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '组件路径',
-                             `query` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '路由参数',
-                             `is_frame` int NULL DEFAULT 1 COMMENT '是否为外链（0是 1否）',
-                             `is_cache` int NULL DEFAULT 0 COMMENT '是否缓存（0缓存 1不缓存）',
-                             `menu_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '菜单类型（M目录 C菜单 F按钮）',
-                             `visible` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '菜单状态（0显示 1隐藏）',
-                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
-                             `perms` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限标识',
-                             `icon` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '#' COMMENT '菜单图标',
-                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                             `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                             `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '备注',
+                             `menu_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                             `menu_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `parent_id` bigint NULL DEFAULT 0 COMMENT '',
+                             `order_num` int NULL DEFAULT 0 COMMENT '',
+                             `path` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `component` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `query` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `is_frame` int NULL DEFAULT 1 COMMENT '',
+                             `is_cache` int NULL DEFAULT 0 COMMENT '',
+                             `menu_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `visible` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `perms` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `icon` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '#' COMMENT '',
+                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
                              PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2171 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '菜单权限表';
+) ENGINE = InnoDB AUTO_INCREMENT = 2171 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `path`, `component`, `query`, `is_frame`, `is_cache`, `menu_type`, `visible`, `status`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES (1, '系统管理', 0, 100, 'system', NULL, '', 1, 0, 'M', '0', '0', '', 'system', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 13:53:29', '系统管理目录'), (2, '系统监控', 0, 101, 'monitor', NULL, '', 1, 0, 'M', '0', '0', '', 'monitor', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 13:53:35', '系统监控目录'), (3, '系统工具', 0, 102, 'tool', NULL, '', 1, 0, 'M', '0', '0', '', 'tool', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 13:53:40', '系统工具目录'), (100, '用户管理', 1, 1, 'user', 'system/user/index', '', 1, 1, 'C', '0', '0', 'system:user:list', 'user', 'admin', '2022-12-06 17:32:35', 'admin', '2023-01-18 15:41:08', '用户管理菜单'), (101, '角色管理', 1, 2, 'role', 'system/role/index', '', 1, 0, 'C', '0', '0', 'system:role:list', 'peoples', 'admin', '2022-12-06 17:32:35', '', NULL, '角色管理菜单'), (102, '菜单管理', 1, 3, 'menu', 'system/menu/index', '', 1, 1, 'C', '0', '0', 'system:menu:list', 'tree-table', 'admin', '2022-12-06 17:32:35', 'admin', '2023-01-18 15:41:12', '菜单管理菜单'), (103, '部门管理', 1, 4, 'dept', 'system/dept/index', '', 1, 0, 'C', '0', '0', 'system:dept:list', 'tree', 'admin', '2022-12-06 17:32:35', '', NULL, '部门管理菜单'), (104, '岗位管理', 1, 5, 'post', 'system/post/index', '', 1, 0, 'C', '0', '0', 'system:post:list', 'post', 'admin', '2022-12-06 17:32:35', '', NULL, '岗位管理菜单'), (105, '字典管理', 1, 6, 'dict', 'system/dict/index', '', 1, 0, 'C', '0', '0', 'system:dict:list', 'dict', 'admin', '2022-12-06 17:32:35', '', NULL, '字典管理菜单'), (106, '参数设置', 1, 7, 'config', 'system/config/index', '', 1, 0, 'C', '0', '0', 'system:config:list', 'edit', 'admin', '2022-12-06 17:32:35', '', NULL, '参数设置菜单'), (107, '通知公告', 1, 8, 'notice', 'system/notice/index', '', 1, 0, 'C', '0', '0', 'system:notice:list', 'message', 'admin', '2022-12-06 17:32:35', '', NULL, '通知公告菜单'), (108, '日志管理', 1, 9, 'log', '', '', 1, 0, 'M', '0', '0', '', 'log', 'admin', '2022-12-06 17:32:35', '', NULL, '日志管理菜单'), (109, '在线用户', 2, 1, 'online', 'monitor/online/index', '', 1, 0, 'C', '0', '0', 'monitor:online:list', 'online', 'admin', '2022-12-06 17:32:35', '', NULL, '在线用户菜单'), (110, '定时任务', 2, 2, 'job', 'monitor/job/index', '', 1, 0, 'C', '0', '0', 'monitor:job:list', 'job', 'admin', '2022-12-06 17:32:35', '', NULL, '定时任务菜单'), (111, '数据监控', 2, 3, 'druid', 'monitor/druid/index', '', 1, 0, 'C', '1', '1', 'monitor:druid:list', 'druid', 'admin', '2022-12-06 17:32:35', '', NULL, '数据监控菜单'), (112, '服务监控', 2, 4, 'server', 'monitor/server/index', '', 1, 0, 'C', '0', '0', 'monitor:server:list', 'server', 'admin', '2022-12-06 17:32:35', '', NULL, '服务监控菜单'), (113, '缓存监控', 2, 5, 'cache', 'monitor/cache/index', '', 1, 0, 'C', '0', '0', 'monitor:cache:list', 'redis', 'admin', '2022-12-06 17:32:35', '', NULL, '缓存监控菜单'), (114, '缓存列表', 2, 6, 'cacheList', 'monitor/cache/list', '', 1, 0, 'C', '0', '0', 'monitor:cache:list', 'redis-list', 'admin', '2022-12-06 17:32:35', '', NULL, '缓存列表菜单'), (115, '表单构建（别删）', 3, 1, 'build', 'tool/build/index', '', 1, 0, 'C', '1', '0', 'tool:build:list', 'build', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 17:35:15', '表单构建菜单'), (116, '代码生成', 3, 2, 'gen', 'tool/gen/index', '', 1, 0, 'C', '0', '0', 'tool:gen:list', 'code', 'admin', '2022-12-06 17:32:35', '', NULL, '代码生成菜单'), (117, '系统接口', 3, 3, 'swagger', 'tool/swagger/index', '', 1, 0, 'C', '0', '0', 'tool:swagger:list', 'swagger', 'admin', '2022-12-06 17:32:35', '', NULL, '系统接口菜单'), (121, '流程分类', 1061, 1, 'category', 'workflow/category/index', '', 1, 0, 'C', '0', '0', 'workflow:category:list', 'nested', 'admin', '2023-02-23 13:39:32', '', NULL, '流程分类菜单'), (122, '表单设计', 1061, 2, 'form', 'workflow/form/index', '', 1, 0, 'C', '0', '0', 'workflow:form:list', 'form', 'admin', '2023-02-23 13:39:32', 'admin', '2023-03-02 17:21:19', '表单配置菜单'), (123, '流程设计', 1061, 3, 'model', 'workflow/model/index', '', 1, 1, 'C', '0', '0', 'workflow:model:list', 'component', 'admin', '2023-02-23 13:39:32', 'admin', '2023-03-06 14:44:37', '流程模型菜单'), (124, '部署管理', 1061, 4, 'deploy', 'workflow/deploy/index', '', 1, 0, 'C', '0', '0', 'workflow:deploy:list', 'example', 'admin', '2023-02-23 13:39:32', '', NULL, '部署管理菜单'), (125, '发起流程', 1062, 1, 'create', 'workflow/work/index', '', 1, 0, 'C', '0', '0', 'workflow:process:startList', 'guide', 'admin', '2023-02-23 13:39:32', 'admin', '2023-03-02 17:24:01', '新建流程菜单'), (126, '我的流程', 1062, 2, 'own', 'workflow/work/own', '', 1, 0, 'C', '0', '0', 'workflow:process:ownList', 'cascader', 'admin', '2023-02-23 13:39:32', '', NULL, '我的流程菜单'), (127, '待办任务', 1062, 3, 'todo', 'workflow/work/todo', '', 1, 0, 'C', '0', '0', 'workflow:process:todoList', 'time-range', 'admin', '2023-02-23 13:39:32', '', NULL, '待办任务菜单'), (128, '待签任务', 1062, 4, 'claim', 'workflow/work/claim', '', 1, 0, 'C', '0', '0', 'workflow:process:claimList', 'checkbox', 'admin', '2023-02-23 13:39:32', '', NULL, '待签任务菜单'), (129, '已办任务', 1062, 5, 'finished', 'workflow/work/finished', '', 1, 0, 'C', '0', '0', 'workflow:process:finishedList', 'checkbox', 'admin', '2023-02-23 13:39:32', '', NULL, '已办任务菜单'), (130, '抄送我的', 1062, 6, 'copy', 'workflow/work/copy', '', 1, 0, 'C', '0', '0', 'workflow:process:copyList', 'checkbox', 'admin', '2023-02-23 13:39:32', '', NULL, '抄送我的菜单'), (500, '操作日志', 108, 1, 'operlog', 'monitor/operlog/index', '', 1, 0, 'C', '0', '0', 'monitor:operlog:list', 'form', 'admin', '2022-12-06 17:32:35', '', NULL, '操作日志菜单'), (501, '登录日志', 108, 2, 'logininfor', 'monitor/logininfor/index', '', 1, 0, 'C', '0', '0', 'monitor:logininfor:list', 'logininfor', 'admin', '2022-12-06 17:32:35', '', NULL, '登录日志菜单'), (1000, '用户查询', 100, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:user:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1001, '用户新增', 100, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:user:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1002, '用户修改', 100, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:user:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1003, '用户删除', 100, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:user:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1004, '用户导出', 100, 5, '', '', '', 1, 0, 'F', '0', '0', 'system:user:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1005, '用户导入', 100, 6, '', '', '', 1, 0, 'F', '0', '0', 'system:user:import', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1006, '重置密码', 100, 7, '', '', '', 1, 0, 'F', '0', '0', 'system:user:resetPwd', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1007, '角色查询', 101, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:role:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1008, '角色新增', 101, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:role:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1009, '角色修改', 101, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:role:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1010, '角色删除', 101, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:role:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1011, '角色导出', 101, 5, '', '', '', 1, 0, 'F', '0', '0', 'system:role:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1012, '菜单查询', 102, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1013, '菜单新增', 102, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1014, '菜单修改', 102, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1015, '菜单删除', 102, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1016, '部门查询', 103, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1017, '部门新增', 103, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1018, '部门修改', 103, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1019, '部门删除', 103, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1020, '岗位查询', 104, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:post:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1021, '岗位新增', 104, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:post:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1022, '岗位修改', 104, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:post:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1023, '岗位删除', 104, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:post:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1024, '岗位导出', 104, 5, '', '', '', 1, 0, 'F', '0', '0', 'system:post:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1025, '字典查询', 105, 1, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1026, '字典新增', 105, 2, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1027, '字典修改', 105, 3, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1028, '字典删除', 105, 4, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1029, '字典导出', 105, 5, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1030, '参数查询', 106, 1, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1031, '参数新增', 106, 2, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1032, '参数修改', 106, 3, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1033, '参数删除', 106, 4, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1034, '参数导出', 106, 5, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1035, '公告查询', 107, 1, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1036, '公告新增', 107, 2, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1037, '公告修改', 107, 3, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1038, '公告删除', 107, 4, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1039, '操作查询', 500, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:operlog:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1040, '操作删除', 500, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:operlog:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1041, '日志导出', 500, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:operlog:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1042, '登录查询', 501, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1043, '登录删除', 501, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1044, '日志导出', 501, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1045, '账户解锁', 501, 4, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:unlock', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1046, '在线查询', 109, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:online:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1047, '批量强退', 109, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:online:batchLogout', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1048, '单条强退', 109, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:online:forceLogout', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1049, '任务查询', 110, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1050, '任务新增', 110, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1051, '任务修改', 110, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1052, '任务删除', 110, 4, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1053, '状态修改', 110, 5, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:changeStatus', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1054, '任务导出', 110, 6, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1055, '生成查询', 116, 1, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1056, '生成修改', 116, 2, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1057, '生成删除', 116, 3, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1058, '导入代码', 116, 4, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:import', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1059, '预览代码', 116, 5, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:preview', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1060, '生成代码', 116, 6, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:code', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1061, '流程管理', 0, 8, 'process', NULL, '', 1, 0, 'M', '0', '0', '', 'skill', 'admin', '2023-02-23 13:39:32', 'admin', '2023-02-23 14:32:47', '流程管理目录'), (1062, '我的事务', 0, 7, 'work', NULL, '', 1, 0, 'M', '0', '0', '', 'job', 'admin', '2023-02-23 13:39:32', 'admin', '2023-02-23 14:32:42', '我的事务目录'), (1140, '分类查询', 121, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1141, '分类新增', 121, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:add', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1142, '分类编辑', 121, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:edit', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1143, '分类删除', 121, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1144, '所有分类', 121, 5, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:listAll', '#', 'admin', '2023-02-24 10:27:30', '', NULL, ''), (1150, '表单查询', 122, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1151, '表单新增', 122, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:add', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1152, '表单修改', 122, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:edit', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1153, '表单删除', 122, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1154, '表单导出', 122, 5, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:export', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1160, '模型查询', 123, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1161, '模型新增', 123, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:add', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1162, '模型修改', 123, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:edit', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1163, '模型删除', 123, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1164, '模型导出', 123, 5, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:export', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1165, '模型导入', 123, 6, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:import', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1166, '模型设计', 123, 7, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:designer', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1167, '模型保存', 123, 8, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:save', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1168, '流程部署', 123, 9, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:deploy', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1170, '部署查询', 124, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:deploy:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1171, '部署删除', 124, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:deploy:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1172, '更新状态', 124, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:deploy:status', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1180, '发起流程', 125, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:start', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1181, '新建流程导出', 125, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:startExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1190, '流程详情', 126, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1191, '流程删除', 126, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1192, '流程取消', 126, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:cancel', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1193, '我的流程导出', 126, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:ownExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1200, '流程办理', 127, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:approval', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1201, '待办流程导出', 127, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:todoExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1210, '流程签收', 128, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:claim', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1211, '待签流程导出', 128, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:claimExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1220, '流程撤回', 129, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:revoke', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1221, '已办流程导出', 129, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:finishedExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1230, '抄送流程导出', 130, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:copyExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (2001, '项目管理', 0, 2, 'pmhub-project', NULL, NULL, 1, 0, 'M', '0', '0', '', 'tab', 'admin', '2022-12-08 09:54:31', 'admin', '2024-03-05 06:02:10', ''), (2002, '我的项目', 2001, 1, 'my-project', 'pmhub-project/my-project', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:my-project', 'list', 'admin', '2022-12-08 09:57:17', 'admin', '2024-03-05 06:02:00', ''), (2003, '我的收藏', 2001, 3, 'my-collection', 'pmhub-project/my-collection', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:my-collection', 'list', 'admin', '2022-12-08 10:01:23', 'admin', '2024-03-05 06:02:30', ''), (2004, '我的任务', 2001, 2, 'my-task', 'pmhub-project/my-task', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:my-task', 'list', 'admin', '2022-12-08 10:02:19', 'admin', '2024-03-05 06:02:23', ''), (2005, '回收站', 2001, 4, 'recycle-bin', 'pmhub-project/recycle-bin', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:recycle-bin', 'list', 'admin', '2022-12-08 10:03:09', 'admin', '2024-03-05 06:02:38', ''), (2006, '库存管理', 0, 4, 'pmhub-storehouse', NULL, NULL, 1, 0, 'M', '1', '1', '', 'tool', 'admin', '2022-12-08 15:00:39', 'admin', '2024-03-05 06:00:26', ''), (2007, '仓库管理', 2006, 1, 'storehouse-manage', 'pmhub-storehouse/storehouse-manage', NULL, 1, 1, 'C', '0', '0', '', 'list', 'admin', '2022-12-08 15:20:00', 'admin', '2022-12-21 11:31:54', ''), (2008, '采购管理', 0, 3, 'pmhub-purchase', NULL, NULL, 1, 0, 'M', '1', '1', '', 'shopping', 'admin', '2022-12-09 15:41:24', 'admin', '2024-03-05 06:00:16', ''), (2009, '物料管理', 0, 5, 'pmhub-materials', NULL, NULL, 1, 0, 'M', '1', '1', '', 'documentation', 'admin', '2022-12-09 15:42:17', 'admin', '2024-03-05 06:00:32', ''), (2010, '供应商管理', 2008, 3, 'supplier-manage', 'pmhub-purchase/provider-manage', NULL, 1, 0, 'C', '0', '0', '', 'list', 'admin', '2022-12-09 16:06:34', 'admin', '2022-12-13 09:10:04', ''), (2011, '供应商详情', 2010, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:query', '#', 'admin', '2022-12-09 16:10:05', 'admin', '2023-01-18 16:45:42', ''), (2012, '仓库新增', 2007, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:add', '#', 'admin', '2022-12-09 17:59:38', '', NULL, ''), (2013, '仓库删除', 2007, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:remove', '#', 'admin', '2022-12-09 18:08:46', '', NULL, ''), (2014, '仓库修改', 2007, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:edit', '#', 'admin', '2022-12-09 18:10:23', '', NULL, ''), (2015, '列表', 2007, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:list', '#', 'admin', '2022-12-09 18:18:50', 'admin', '2022-12-09 18:30:55', ''), (2016, '详情', 2002, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-project:my-project:info', '#', 'admin', '2022-12-12 10:33:04', 'admin', '2022-12-12 10:33:21', ''), (2017, '物料类别', 2009, 2, 'materials-sort', 'pmhub-materials/materials-sort', NULL, 1, 0, 'C', '0', '0', '', 'list', 'admin', '2022-12-20 09:13:16', 'admin', '2022-12-21 11:32:17', ''), (2018, '详情', 2004, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-project:my-task:info', '#', 'admin', '2022-12-20 09:42:12', '', NULL, ''), (2019, '采购入库', 2008, 1, 'purchase-inbound', 'pmhub-purchase/purchase-inbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-purchase:purchase-inbound', 'list', 'admin', '2022-12-20 17:30:05', 'admin', '2022-12-20 17:30:38', ''), (2020, '采购退货出库', 2008, 2, 'purchase-return-outbound', 'pmhub-purchase/purchase-return-outbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-purchase:purchase-return-outbound', 'list', 'admin', '2022-12-20 17:31:38', 'admin', '2022-12-20 17:32:00', ''), (2022, '其他入库', 2006, 3, 'other-inbound', 'pmhub-storehouse/other-inbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-storehouse:other-inbound', 'list', 'admin', '2022-12-21 11:55:11', 'admin', '2023-04-11 14:02:01', ''), (2023, '其他出库', 2006, 4, 'other-outbound', 'pmhub-storehouse/other-outbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-storehouse:other-outbound', 'list', 'admin', '2022-12-21 11:55:50', 'admin', '2023-04-11 14:02:06', ''), (2024, '物料明细', 2009, 1, 'materials-details', 'pmhub-materials/materials-details', NULL, 1, 1, 'C', '0', '0', 'pmhub-materials:materials-details', 'list', 'admin', '2022-12-21 13:42:46', '', NULL, ''), (2025, '物料台账', 2009, 3, 'materials-bill', 'pmhub-materials/materials-bill', NULL, 1, 1, 'C', '0', '0', 'pmhub-materials:materials-bill', 'list', 'admin', '2022-12-21 13:43:26', '', NULL, ''), (2028, '文件上传', 2016, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:upload', '#', 'admin', '2023-01-04 17:31:41', '', NULL, ''), (2029, '新增项目', 2002, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:add', '#', 'admin', '2023-01-04 17:49:54', '', NULL, ''), (2030, '首页统计', 2002, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:statistics', '#', 'admin', '2023-01-04 17:50:16', '', NULL, ''), (2031, '与我有关的项目', 2002, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:select', '#', 'admin', '2023-01-04 17:50:49', '', NULL, ''), (2033, '查询所有项目', 2002, 18, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:queryAllProject', '#', 'admin', '2023-01-04 17:52:38', 'admin', '2023-01-05 14:37:04', ''), (2034, '进行中的项目', 2002, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:doing', '#', 'admin', '2023-01-04 17:53:03', '', NULL, ''), (2035, '首页-我的任务', 2002, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryMyTaskList', '#', 'admin', '2023-01-04 17:55:48', '', NULL, ''), (2036, '项目列表', 2002, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:list', '#', 'admin', '2023-01-04 18:02:59', '', NULL, ''), (2037, '修改项目', 2002, 8, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:edit', '#', 'admin', '2023-01-04 18:03:27', '', NULL, ''), (2038, '删除项目', 2002, 9, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:delete', '#', 'admin', '2023-01-04 18:03:58', '', NULL, ''), (2039, '项目归档', 2002, 10, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:archive', '#', 'admin', '2023-01-04 18:04:24', '', NULL, ''), (2040, '退出项目', 2002, 11, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:quit', '#', 'admin', '2023-01-04 18:04:44', '', NULL, ''), (2041, '概况-任务每日新增趋势', 2002, 12, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:taskStatisticsByDate', '#', 'admin', '2023-01-04 18:05:03', '', NULL, ''), (2042, '项目详情-任务列表', 2002, 13, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:detail:taskList', '#', 'admin', '2023-01-04 18:05:27', '', NULL, ''), (2043, '文件上传', 2002, 14, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:upload', '#', 'admin', '2023-01-04 18:08:27', '', NULL, ''), (2044, '文件列表', 2002, 15, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:queryFileList', '#', 'admin', '2023-01-04 18:08:53', '', NULL, ''), (2045, '文件重命名', 2002, 16, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:rename', '#', 'admin', '2023-01-04 18:09:16', '', NULL, ''), (2046, '文件删除', 2002, 17, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:delete', '#', 'admin', '2023-01-04 18:09:34', '', NULL, ''), (2047, '首页-我的任务', 2004, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryMyTaskList', '#', 'admin', '2023-01-05 14:54:23', '', NULL, ''), (2048, '概况-任务概况', 2004, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:situation', '#', 'admin', '2023-01-05 15:31:15', '', NULL, ''), (2049, '删除任务', 2004, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:delete', '#', 'admin', '2023-01-05 15:31:44', '', NULL, ''), (2050, '任务详情', 2004, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:detail', '#', 'admin', '2023-01-05 15:32:06', '', NULL, ''), (2051, '任务详情-查询执行人', 2004, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryExecutorList', '#', 'admin', '2023-01-05 15:33:07', '', NULL, ''), (2052, '添加任务', 2004, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:add', '#', 'admin', '2023-01-05 15:34:44', '', NULL, ''), (2053, '添加子任务', 2004, 8, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:addChildTask', '#', 'admin', '2023-01-05 15:35:08', '', NULL, ''), (2054, '修改任务', 2004, 9, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:edit', '#', 'admin', '2023-01-05 15:40:33', '', NULL, ''), (2055, '我的任务列表', 2004, 10, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:list', '#', 'admin', '2023-01-05 15:40:56', '', NULL, ''), (2056, '查询子任务', 2004, 11, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryChildTask', '#', 'admin', '2023-01-05 15:44:53', '', NULL, ''), (2057, '添加评论', 2004, 12, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:addComment', '#', 'admin', '2023-01-05 15:46:02', '', NULL, ''), (2058, '任务动态', 2004, 13, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:logList', '#', 'admin', '2023-01-05 15:46:53', '', NULL, ''), (2059, '导入任务', 2004, 14, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:import', '#', 'admin', '2023-01-05 15:47:31', '', NULL, ''), (2060, '项目阶段列表', 2002, 19, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:list', '#', 'admin', '2023-01-05 15:53:02', '', NULL, ''), (2061, '添加项目阶段', 2002, 20, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:add', '#', 'admin', '2023-01-05 15:53:33', '', NULL, ''), (2062, '编辑项目阶段', 2002, 21, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:edit', '#', 'admin', '2023-01-05 15:53:56', '', NULL, ''), (2063, '删除项目阶段', 2002, 22, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:delete', '#', 'admin', '2023-01-05 15:54:16', '', NULL, ''), (2064, '添加成员', 2002, 23, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:inviteMemberList', '#', 'admin', '2023-01-05 15:56:00', '', NULL, ''), (2065, '移除成员', 2002, 24, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:removeMemberList', '#', 'admin', '2023-01-05 15:56:22', '', NULL, ''), (2066, '搜索成员', 2002, 25, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:list', '#', 'admin', '2023-01-05 15:56:39', '', NULL, ''), (2067, '获取用户列表', 2002, 26, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:queryUserList', '#', 'admin', '2023-01-05 15:57:03', '', NULL, ''), (2068, '获取已加入项目成员', 2002, 27, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:queryUserListById', '#', 'admin', '2023-01-05 15:57:37', '', NULL, ''), (2069, '项目动态', 2002, 28, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:log:list', '#', 'admin', '2023-01-05 15:58:06', '', NULL, ''), (2070, '收藏项目', 2002, 30, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:collect', '#', 'admin', '2023-01-05 15:59:10', '', NULL, ''), (2071, '取消收藏项目', 2002, 31, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:cancelCollect', '#', 'admin', '2023-01-05 15:59:29', '', NULL, ''), (2074, '首页（别删）', 0, 1, '虚拟首页不用配置', NULL, NULL, 1, 0, 'M', '1', '1', '', 'dashboard', 'admin', '2023-01-13 15:33:05', 'admin', '2023-02-23 14:26:08', ''), (2075, '首页统计', 2074, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:statistics', '#', 'admin', '2023-01-13 15:35:27', '', NULL, ''), (2076, '与我有关的项目', 2074, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:select', '#', 'admin', '2023-01-13 15:35:53', '', NULL, ''), (2077, '进行中的项目', 2074, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:doing', '#', 'admin', '2023-01-13 15:36:13', '', NULL, ''), (2078, '首页-我的任务列表', 2074, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryMyTaskList', '#', 'admin', '2023-01-13 15:37:15', '', NULL, ''), (2079, '查询', 2024, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:list', '#', 'admin', '2023-01-18 16:35:00', 'admin', '2023-01-18 16:44:41', ''), (2080, '新增', 2024, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:add', '#', 'admin', '2023-01-18 16:37:06', '', NULL, ''), (2081, '编辑', 2024, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:edit', '#', 'admin', '2023-01-18 16:37:34', '', NULL, ''), (2082, '删除', 2024, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:delete', '#', 'admin', '2023-01-18 16:37:54', '', NULL, ''), (2083, '查询', 2017, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:list', '#', 'admin', '2023-01-18 16:42:06', '', NULL, ''), (2084, '新增', 2017, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:add', '#', 'admin', '2023-01-18 16:42:28', '', NULL, ''), (2086, '删除', 2017, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:delete', '#', 'admin', '2023-01-18 16:42:59', '', NULL, ''), (2087, '供应商列表', 2010, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:list', '#', 'admin', '2023-01-18 16:44:51', '', NULL, ''), (2088, '查询', 2025, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-records:list', '#', 'admin', '2023-01-18 16:45:03', '', NULL, ''), (2091, '新增供应商', 2010, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:add', '#', 'admin', '2023-01-18 16:46:05', 'admin', '2023-04-06 14:56:16', ''), (2093, '修改供应商', 2010, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:edit', '#', 'admin', '2023-01-18 16:46:23', '', NULL, ''), (2094, '删除供应商', 2010, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:remove', '#', 'admin', '2023-01-18 16:46:50', '', NULL, ''), (2095, '编辑', 2017, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:edit', '#', 'admin', '2023-01-18 16:46:50', '', NULL, ''), (2096, '查询', 2022, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:list', '#', 'admin', '2023-01-18 16:50:52', '', NULL, ''), (2097, '新增', 2022, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:add', '#', 'admin', '2023-01-18 16:51:08', '', NULL, ''), (2098, '编辑', 2022, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:edit', '#', 'admin', '2023-01-18 16:51:24', '', NULL, ''), (2099, '删除', 2022, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:delete', '#', 'admin', '2023-01-18 16:51:50', '', NULL, ''), (2100, '查询', 2023, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:list', '#', 'admin', '2023-01-18 16:53:37', '', NULL, ''), (2101, '新增', 2023, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:add', '#', 'admin', '2023-01-18 16:54:09', '', NULL, ''), (2102, '编辑', 2023, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:edit', '#', 'admin', '2023-01-18 16:54:49', '', NULL, ''), (2103, '删除', 2023, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:delete', '#', 'admin', '2023-01-18 16:55:15', '', NULL, ''), (2104, '查询', 2019, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:list', '#', 'admin', '2023-01-18 16:56:41', '', NULL, ''), (2105, '新增', 2019, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:add', '#', 'admin', '2023-01-18 16:57:01', '', NULL, ''), (2106, '编辑', 2019, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:edit', '#', 'admin', '2023-01-18 16:57:19', '', NULL, ''), (2107, '删除', 2019, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:delete', '#', 'admin', '2023-01-18 16:57:37', '', NULL, ''), (2108, '查询', 2020, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:list', '#', 'admin', '2023-01-18 16:58:40', '', NULL, ''), (2109, '新增', 2020, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:add', '#', 'admin', '2023-01-18 16:58:55', '', NULL, ''), (2110, '编辑', 2020, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:edit', '#', 'admin', '2023-01-18 16:59:11', '', NULL, ''), (2111, '删除', 2020, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:delete', '#', 'admin', '2023-01-18 16:59:22', '', NULL, ''), (2112, '查询供应商名称', 2010, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:getProviderName', '#', 'admin', '2023-01-18 17:15:43', 'admin', '2023-01-18 17:15:54', ''), (2113, '导出', 2024, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:export', '#', 'admin', '2023-01-18 17:27:39', '', NULL, ''), (2114, '导出', 2025, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-records:export', '#', 'admin', '2023-01-18 17:28:03', 'admin', '2023-01-18 17:28:15', ''), (2115, '项目详情', 2002, 32, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:detail', '#', 'admin', '2023-01-19 10:54:47', '', NULL, ''), (2116, '审批管理（备份）', 0, 6, 'pmhub-approval', NULL, NULL, 1, 0, 'M', '0', '1', '', 'checkbox', 'admin', '2023-02-14 14:34:15', 'admin', '2023-02-23 10:00:13', ''), (2117, '发起申请', 2116, 1, 'send-application', 'pmhub-approval/send-application', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:send-application', 'list', 'admin', '2023-02-14 14:35:52', 'admin', '2023-02-14 14:41:26', ''), (2118, '我的申请', 2116, 2, 'my-application', 'pmhub-approval/my-application', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:my-application', 'list', 'admin', '2023-02-14 14:38:24', '', NULL, ''), (2119, '我审批的', 2116, 3, 'I-approve', 'pmhub-approval/I-approve', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:I-approve', 'list', 'admin', '2023-02-14 14:39:00', '', NULL, ''), (2120, '审批设置', 2116, 4, 'approval-settings', 'pmhub-approval/approval-settings', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:approval-settings', 'list', 'admin', '2023-02-14 14:39:36', '', NULL, ''), (2122, '审批', 2004, 15, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:process:start', '#', 'admin', '2023-03-13 15:29:47', 'admin', '2023-03-13 15:30:34', ''), (2123, '模板列表', 2004, 16, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:queryFileList', '#', 'admin', '2023-03-13 15:35:38', 'admin', '2023-03-13 15:36:42', ''), (2124, '模板删除', 2004, 17, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:delete', '#', 'admin', '2023-03-13 15:36:09', 'admin', '2023-03-13 15:36:37', ''), (2125, '审批设置', 2004, 19, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:updateApprovalSet', '#', 'admin', '2023-03-13 15:41:26', 'admin', '2023-03-13 15:53:27', ''), (2126, '流程列表', 2004, 18, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:process:startList', '#', 'admin', '2023-03-13 15:53:14', 'admin', '2023-03-13 15:53:35', ''), (2127, '流程分类', 2004, 20, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:category:listAll', '#', 'admin', '2023-03-13 15:53:14', 'admin', '2023-03-13 15:53:35', ''), (2128, '归还入库', 2006, 2, 'return-inbound', 'pmhub-storehouse/return-inbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-storehouse:other-inbound', 'list', 'admin', '2023-04-11 14:01:48', 'admin', '2023-04-11 14:07:46', ''), (2129, '查询', 2128, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:list', '#', 'admin', '2023-04-11 14:03:18', 'admin', '2023-04-11 14:03:58', ''), (2130, '新增', 2128, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:add', '#', 'admin', '2023-04-11 14:03:30', 'admin', '2023-04-11 14:04:04', ''), (2131, '编辑', 2128, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:edit', '#', 'admin', '2023-04-11 14:03:39', 'admin', '2023-04-11 14:04:16', ''), (2132, '删除', 2128, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:delete', '#', 'admin', '2023-04-11 14:03:47', 'admin', '2023-04-11 14:04:23', ''), (2133, '审批设置', 2019, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:inbound:updateApprovalSet', '#', 'admin', '2023-05-05 09:29:33', '', NULL, ''), (2134, '审批设置', 2020, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:outbound:updateApprovalSet', '#', 'admin', '2023-05-05 09:30:16', '', NULL, ''), (2135, '发起审批', 2019, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:inbound:approve', '#', 'admin', '2023-05-05 09:30:44', '', NULL, ''), (2136, '发起审批', 2020, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:outbound:approve', '#', 'admin', '2023-05-05 09:31:04', '', NULL, ''), (2137, '审批设置', 2128, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:returnInto:updateApprovalSet', '#', 'admin', '2023-05-05 09:32:42', '', NULL, ''), (2138, '审批设置', 2022, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherInto:updateApprovalSet', '#', 'admin', '2023-05-05 09:33:06', '', NULL, ''), (2139, '审批设置', 2023, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherOut:updateApprovalSet', '#', 'admin', '2023-05-05 09:33:33', '', NULL, ''), (2140, '发起审批', 2022, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherInto:approve', '#', 'admin', '2023-05-05 09:33:55', '', NULL, ''), (2141, '发起审批', 2023, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherOut:approve', '#', 'admin', '2023-05-05 09:34:13', '', NULL, ''), (2142, '发起审批', 2128, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:returnInto:approve', '#', 'admin', '2023-05-05 09:34:35', '', NULL, ''), (2143, '审批设置', 2010, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', '	 pmhub-purchase:providerManage:updateApprovalSet', '#', 'admin', '2023-05-09 14:56:48', 'admin', '2023-05-09 14:57:17', ''), (2144, '发起审批', 2010, 8, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:approval', '#', 'admin', '2023-05-09 15:01:08', '', NULL, ''), (2145, '物料报废', 2009, 4, 'materials-scrap', 'pmhub-materials/materials-scrap', NULL, 1, 1, 'C', '0', '0', 'pmhub-materials:materials-scrap', 'list', 'admin', '2023-07-04 09:16:41', '', NULL, ''), (2146, '审批设置', 2145, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:approvalSet', '#', 'admin', '2023-07-07 14:49:56', '', NULL, ''), (2147, '报废记录列表', 2145, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:uselessList', '#', 'admin', '2023-07-11 15:07:47', '', NULL, ''), (2148, '报废记录审批', 2145, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:approve', '#', 'admin', '2023-07-11 15:08:18', '', NULL, ''), (2149, '处理意见', 2145, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:opinion', '#', 'admin', '2023-07-13 19:48:54', 'admin', '2023-07-13 19:49:08', ''), (2150, '修改责任人', 2145, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:updatePrincipalId', '#', 'zhangsan', '2023-07-13 19:51:12', '', NULL, ''), (2151, '呆滞列表查询', 2145, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:list', '#', 'admin', '2023-07-13 19:53:53', '', NULL, ''), (2152, '导入', 2025, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-records:import', '#', 'admin', '2023-07-18 16:44:41', 'admin', '2023-07-18 16:45:06', ''), (2153, '导入', 2024, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', '	 materials:materials:import', '#', 'admin', '2023-07-19 15:53:23', 'admin', '2023-07-19 15:53:47', ''), (2154, '流程激活或者挂起', 124, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:deploy:state', '#', 'admin', '2023-07-21 09:51:06', '', NULL, ''), (2155, '导出记录', 2145, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:export', '#', 'zhangsan', '2023-09-11 11:52:35', '', NULL, ''), (2156, '供应商类别', 2008, 4, 'provider-sort', 'pmhub-purchase/provider-sort', NULL, 1, 0, 'C', '0', '0', NULL, 'tree', 'admin', '2023-11-16 14:58:15', '', NULL, ''), (2157, '后台任务', 3, 3, 'async', 'tool/async/index', NULL, 1, 0, 'C', '0', '0', '', 'druid', 'admin', '2023-12-22 10:27:41', 'zhangsan', '2023-12-27 16:26:24', ''), (2158, '查询', 2156, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:list', '#', 'admin', '2024-01-04 14:02:54', '', NULL, ''), (2159, '新增', 2156, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:add', '#', 'admin', '2024-01-04 14:03:27', '', NULL, ''), (2160, '编辑', 2156, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:edit', '#', 'admin', '2024-01-04 14:03:49', '', NULL, ''), (2161, '删除', 2156, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:delete', '#', 'admin', '2024-01-04 14:04:13', '', NULL, ''), (2163, '超级网盘', 3, 10, 'https://nextcloud.pmhubetech.com:8083/', NULL, NULL, 0, 0, 'M', '1', '1', '', 'search', 'test_admin', '2024-01-08 10:32:10', 'admin', '2024-03-05 06:00:56', ''), (2164, '工具管理', 3, 5, 'pmhub-tools', 'tool/pmhub-tool/index', NULL, 1, 0, 'C', '1', '1', '', 'tool', 'admin', '2024-01-12 11:17:34', 'admin', '2024-03-05 06:00:47', ''), (2166, '修改', 2164, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:edit', '#', 'admin', '2024-01-15 15:40:23', 'admin', '2024-01-15 15:42:59', ''), (2167, '删除', 2164, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:remove', '#', 'admin', '2024-01-15 15:40:51', 'admin', '2024-01-15 15:43:11', ''), (2168, '新增', 2164, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:add', '#', 'admin', '2024-01-15 15:42:00', 'admin', '2024-01-15 15:42:43', ''), (2169, '列表', 2164, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:list', '#', 'admin', '2024-01-15 15:46:11', '', NULL, ''), (2170, '详情', 2164, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:query', '#', 'admin', '2024-01-15 15:46:37', '', NULL, '');
+INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `path`, `component`, `query`, `is_frame`, `is_cache`, `menu_type`, `visible`, `status`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES (1, '系统管理', 0, 100, 'system', NULL, '', 1, 0, 'M', '0', '0', '', 'system', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 13:53:29', '系统管理目录'), (2, '系统监控', 0, 101, 'monitor', NULL, '', 1, 0, 'M', '0', '0', '', 'monitor', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 13:53:35', '系统监控目录'), (3, '系统工具', 0, 102, 'tool', NULL, '', 1, 0, 'M', '0', '0', '', 'tool', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 13:53:40', '系统工具目录'), (100, '用户管理', 1, 1, 'user', 'system/user/index', '', 1, 1, 'C', '0', '0', 'system:user:list', 'user', 'admin', '2022-12-06 17:32:35', 'admin', '2023-01-18 15:41:08', '用户管理菜单'), (101, '角色管理', 1, 2, 'role', 'system/role/index', '', 1, 0, 'C', '0', '0', 'system:role:list', 'peoples', 'admin', '2022-12-06 17:32:35', '', NULL, '角色管理菜单'), (102, '菜单管理', 1, 3, 'menu', 'system/menu/index', '', 1, 1, 'C', '0', '0', 'system:menu:list', 'tree-table', 'admin', '2022-12-06 17:32:35', 'admin', '2023-01-18 15:41:12', '菜单管理菜单'), (103, '部门管理', 1, 4, 'dept', 'system/dept/index', '', 1, 0, 'C', '0', '0', 'system:dept:list', 'tree', 'admin', '2022-12-06 17:32:35', '', NULL, '部门管理菜单'), (104, '岗位管理', 1, 5, 'post', 'system/post/index', '', 1, 0, 'C', '0', '0', 'system:post:list', 'post', 'admin', '2022-12-06 17:32:35', '', NULL, '岗位管理菜单'), (105, '字典管理', 1, 6, 'dict', 'system/dict/index', '', 1, 0, 'C', '0', '0', 'system:dict:list', 'dict', 'admin', '2022-12-06 17:32:35', '', NULL, '字典管理菜单'), (106, '参数设置', 1, 7, 'config', 'system/config/index', '', 1, 0, 'C', '0', '0', 'system:config:list', 'edit', 'admin', '2022-12-06 17:32:35', '', NULL, '参数设置菜单'), (107, '通知公告', 1, 8, 'notice', 'system/notice/index', '', 1, 0, 'C', '0', '0', 'system:notice:list', 'message', 'admin', '2022-12-06 17:32:35', '', NULL, '通知公告菜单'), (108, '日志管理', 1, 9, 'log', '', '', 1, 0, 'M', '0', '0', '', 'log', 'admin', '2022-12-06 17:32:35', '', NULL, '日志管理菜单'), (109, '在线用户', 2, 1, 'online', 'monitor/online/index', '', 1, 0, 'C', '0', '0', 'monitor:online:list', 'online', 'admin', '2022-12-06 17:32:35', '', NULL, '在线用户菜单'), (110, '定时任务', 2, 2, 'job', 'monitor/job/index', '', 1, 0, 'C', '0', '0', 'monitor:job:list', 'job', 'admin', '2022-12-06 17:32:35', '', NULL, '定时任务菜单'), (111, '数据监控', 2, 3, 'druid', 'monitor/druid/index', '', 1, 0, 'C', '1', '1', 'monitor:druid:list', 'druid', 'admin', '2022-12-06 17:32:35', '', NULL, '数据监控菜单'), (112, '服务监控', 2, 4, 'server', 'monitor/server/index', '', 1, 0, 'C', '0', '0', 'monitor:server:list', 'server', 'admin', '2022-12-06 17:32:35', '', NULL, '服务监控菜单'), (113, '缓存监控', 2, 5, 'cache', 'monitor/cache/index', '', 1, 0, 'C', '0', '0', 'monitor:cache:list', 'redis', 'admin', '2022-12-06 17:32:35', '', NULL, '缓存监控菜单'), (114, '缓存列表', 2, 6, 'cacheList', 'monitor/cache/list', '', 1, 0, 'C', '0', '0', 'monitor:cache:list', 'redis-list', 'admin', '2022-12-06 17:32:35', '', NULL, '缓存列表菜单'), (115, '表单构建（别删）', 3, 1, 'build', 'tool/build/index', '', 1, 0, 'C', '1', '0', 'tool:build:list', 'build', 'admin', '2022-12-06 17:32:35', 'admin', '2023-02-23 17:35:15', '表单构建菜单'), (116, '代码生成', 3, 2, 'gen', 'tool/gen/index', '', 1, 0, 'C', '0', '0', 'tool:gen:list', 'code', 'admin', '2022-12-06 17:32:35', '', NULL, '代码生成菜单'), (117, '系统接口', 3, 3, 'swagger', 'tool/swagger/index', '', 1, 0, 'C', '0', '0', 'tool:swagger:list', 'swagger', 'admin', '2022-12-06 17:32:35', '', NULL, '系统接口菜单'), (121, '流程分类', 1061, 1, 'category', 'workflow/category/index', '', 1, 0, 'C', '0', '0', 'workflow:category:list', 'nested', 'admin', '2023-02-23 13:39:32', '', NULL, '流程分类菜单'), (122, '表单设计', 1061, 2, 'form', 'workflow/form/index', '', 1, 0, 'C', '0', '0', 'workflow:form:list', 'form', 'admin', '2023-02-23 13:39:32', 'admin', '2023-03-02 17:21:19', '表单配置菜单'), (123, '流程设计', 1061, 3, 'model', 'workflow/model/index', '', 1, 1, 'C', '0', '0', 'workflow:model:list', 'component', 'admin', '2023-02-23 13:39:32', 'admin', '2023-03-06 14:44:37', '流程模型菜单'), (124, '部署管理', 1061, 4, 'deploy', 'workflow/deploy/index', '', 1, 0, 'C', '0', '0', 'workflow:deploy:list', 'example', 'admin', '2023-02-23 13:39:32', '', NULL, '部署管理菜单'), (125, '发起流程', 1062, 1, 'create', 'workflow/work/index', '', 1, 0, 'C', '0', '0', 'workflow:process:startList', 'guide', 'admin', '2023-02-23 13:39:32', 'admin', '2023-03-02 17:24:01', '新建流程菜单'), (126, '我的流程', 1062, 2, 'own', 'workflow/work/own', '', 1, 0, 'C', '0', '0', 'workflow:process:ownList', 'cascader', 'admin', '2023-02-23 13:39:32', '', NULL, '我的流程菜单'), (127, '待办任务', 1062, 3, 'todo', 'workflow/work/todo', '', 1, 0, 'C', '0', '0', 'workflow:process:todoList', 'time-range', 'admin', '2023-02-23 13:39:32', '', NULL, '待办任务菜单'), (128, '待签任务', 1062, 4, 'claim', 'workflow/work/claim', '', 1, 0, 'C', '0', '0', 'workflow:process:claimList', 'checkbox', 'admin', '2023-02-23 13:39:32', '', NULL, '待签任务菜单'), (129, '已办任务', 1062, 5, 'finished', 'workflow/work/finished', '', 1, 0, 'C', '0', '0', 'workflow:process:finishedList', 'checkbox', 'admin', '2023-02-23 13:39:32', '', NULL, '已办任务菜单'), (130, '抄送我的', 1062, 6, 'copy', 'workflow/work/copy', '', 1, 0, 'C', '0', '0', 'workflow:process:copyList', 'checkbox', 'admin', '2023-02-23 13:39:32', '', NULL, '抄送我的菜单'), (500, '操作日志', 108, 1, 'operlog', 'monitor/operlog/index', '', 1, 0, 'C', '0', '0', 'monitor:operlog:list', 'form', 'admin', '2022-12-06 17:32:35', '', NULL, '操作日志菜单'), (501, '登录日志', 108, 2, 'logininfor', 'monitor/logininfor/index', '', 1, 0, 'C', '0', '0', 'monitor:logininfor:list', 'logininfor', 'admin', '2022-12-06 17:32:35', '', NULL, '登录日志菜单'), (1000, '用户查询', 100, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:user:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1001, '用户新增', 100, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:user:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1002, '用户修改', 100, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:user:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1003, '用户删除', 100, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:user:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1004, '用户导出', 100, 5, '', '', '', 1, 0, 'F', '0', '0', 'system:user:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1005, '用户导入', 100, 6, '', '', '', 1, 0, 'F', '0', '0', 'system:user:import', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1006, '重置密码', 100, 7, '', '', '', 1, 0, 'F', '0', '0', 'system:user:resetPwd', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1007, '角色查询', 101, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:role:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1008, '角色新增', 101, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:role:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1009, '角色修改', 101, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:role:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1010, '角色删除', 101, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:role:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1011, '角色导出', 101, 5, '', '', '', 1, 0, 'F', '0', '0', 'system:role:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1012, '菜单查询', 102, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1013, '菜单新增', 102, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1014, '菜单修改', 102, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1015, '菜单删除', 102, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:menu:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1016, '部门查询', 103, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1017, '部门新增', 103, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1018, '部门修改', 103, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1019, '部门删除', 103, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:dept:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1020, '岗位查询', 104, 1, '', '', '', 1, 0, 'F', '0', '0', 'system:post:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1021, '岗位新增', 104, 2, '', '', '', 1, 0, 'F', '0', '0', 'system:post:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1022, '岗位修改', 104, 3, '', '', '', 1, 0, 'F', '0', '0', 'system:post:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1023, '岗位删除', 104, 4, '', '', '', 1, 0, 'F', '0', '0', 'system:post:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1024, '岗位导出', 104, 5, '', '', '', 1, 0, 'F', '0', '0', 'system:post:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1025, '字典查询', 105, 1, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1026, '字典新增', 105, 2, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1027, '字典修改', 105, 3, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1028, '字典删除', 105, 4, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1029, '字典导出', 105, 5, '#', '', '', 1, 0, 'F', '0', '0', 'system:dict:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1030, '参数查询', 106, 1, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1031, '参数新增', 106, 2, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1032, '参数修改', 106, 3, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1033, '参数删除', 106, 4, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1034, '参数导出', 106, 5, '#', '', '', 1, 0, 'F', '0', '0', 'system:config:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1035, '公告查询', 107, 1, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1036, '公告新增', 107, 2, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1037, '公告修改', 107, 3, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1038, '公告删除', 107, 4, '#', '', '', 1, 0, 'F', '0', '0', 'system:notice:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1039, '操作查询', 500, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:operlog:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1040, '操作删除', 500, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:operlog:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1041, '日志导出', 500, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:operlog:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1042, '登录查询', 501, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1043, '登录删除', 501, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1044, '日志导出', 501, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1045, '账户解锁', 501, 4, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:logininfor:unlock', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1046, '在线查询', 109, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:online:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1047, '批量强退', 109, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:online:batchLogout', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1048, '单条强退', 109, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:online:forceLogout', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1049, '任务查询', 110, 1, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1050, '任务新增', 110, 2, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:add', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1051, '任务修改', 110, 3, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1052, '任务删除', 110, 4, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1053, '状态修改', 110, 5, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:changeStatus', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1054, '任务导出', 110, 6, '#', '', '', 1, 0, 'F', '0', '0', 'monitor:job:export', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1055, '生成查询', 116, 1, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:query', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1056, '生成修改', 116, 2, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:edit', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1057, '生成删除', 116, 3, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:remove', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1058, '导入代码', 116, 4, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:import', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1059, '预览代码', 116, 5, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:preview', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1060, '生成代码', 116, 6, '#', '', '', 1, 0, 'F', '0', '0', 'tool:gen:code', '#', 'admin', '2022-12-06 17:32:35', '', NULL, ''), (1061, '流程管理', 0, 8, 'process', NULL, '', 1, 0, 'M', '0', '0', '', 'skill', 'admin', '2023-02-23 13:39:32', 'admin', '2023-02-23 14:32:47', '流程管理目录'), (1062, '我的事务', 0, 7, 'work', NULL, '', 1, 0, 'M', '0', '0', '', 'job', 'admin', '2023-02-23 13:39:32', 'admin', '2023-02-23 14:32:42', '我的事务目录'), (1140, '分类查询', 121, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1141, '分类新增', 121, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:add', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1142, '分类编辑', 121, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:edit', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1143, '分类删除', 121, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1144, '所有分类', 121, 5, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:category:listAll', '#', 'admin', '2023-02-24 10:27:30', '', NULL, ''), (1150, '表单查询', 122, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1151, '表单新增', 122, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:add', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1152, '表单修改', 122, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:edit', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1153, '表单删除', 122, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1154, '表单导出', 122, 5, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:form:export', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1160, '模型查询', 123, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1161, '模型新增', 123, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:add', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1162, '模型修改', 123, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:edit', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1163, '模型删除', 123, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1164, '模型导出', 123, 5, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:export', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1165, '模型导入', 123, 6, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:import', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1166, '模型设计', 123, 7, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:designer', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1167, '模型保存', 123, 8, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:save', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1168, '流程部署', 123, 9, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:model:deploy', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1170, '部署查询', 124, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:deploy:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1171, '部署删除', 124, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:deploy:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1172, '更新状态', 124, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:deploy:status', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1180, '发起流程', 125, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:start', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1181, '新建流程导出', 125, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:startExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1190, '流程详情', 126, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:query', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1191, '流程删除', 126, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:remove', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1192, '流程取消', 126, 3, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:cancel', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1193, '我的流程导出', 126, 4, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:ownExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1200, '流程办理', 127, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:approval', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1201, '待办流程导出', 127, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:todoExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1210, '流程签收', 128, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:claim', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1211, '待签流程导出', 128, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:claimExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1220, '流程撤回', 129, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:revoke', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1221, '已办流程导出', 129, 2, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:finishedExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (1230, '抄送流程导出', 130, 1, '#', '', '', 1, 0, 'F', '0', '0', 'workflow:process:copyExport', '#', 'admin', '2023-02-23 13:39:32', '', NULL, ''), (2001, '项目管理', 0, 2, 'pmhub-project', NULL, NULL, 1, 0, 'M', '0', '0', '', 'tab', 'admin', '2022-12-08 09:54:31', 'admin', '2024-03-05 06:02:10', ''), (2002, '我的项目', 2001, 1, 'my-project', 'pmhub-project/my-project', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:my-project', 'list', 'admin', '2022-12-08 09:57:17', 'admin', '2024-03-05 06:02:00', ''), (2003, '我的收藏', 2001, 3, 'my-collection', 'pmhub-project/my-collection', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:my-collection', 'list', 'admin', '2022-12-08 10:01:23', 'admin', '2024-03-05 06:02:30', ''), (2004, '我的任务', 2001, 2, 'my-task', 'pmhub-project/my-task', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:my-task', 'list', 'admin', '2022-12-08 10:02:19', 'admin', '2024-03-05 06:02:23', ''), (2005, '回收站', 2001, 4, 'recycle-bin', 'pmhub-project/recycle-bin', NULL, 1, 1, 'C', '0', '0', 'pmhub-project:recycle-bin', 'list', 'admin', '2022-12-08 10:03:09', 'admin', '2024-03-05 06:02:38', ''), (2006, '库存管理', 0, 4, 'pmhub-storehouse', NULL, NULL, 1, 0, 'M', '1', '1', '', 'tool', 'admin', '2022-12-08 15:00:39', 'admin', '2024-03-05 06:00:26', ''), (2007, '仓库管理', 2006, 1, 'storehouse-manage', 'pmhub-storehouse/storehouse-manage', NULL, 1, 1, 'C', '0', '0', '', 'list', 'admin', '2022-12-08 15:20:00', 'admin', '2022-12-21 11:31:54', ''), (2008, '采购管理', 0, 3, 'pmhub-purchase', NULL, NULL, 1, 0, 'M', '1', '1', '', 'shopping', 'admin', '2022-12-09 15:41:24', 'admin', '2024-03-05 06:00:16', ''), (2009, '物料管理', 0, 5, 'pmhub-materials', NULL, NULL, 1, 0, 'M', '1', '1', '', 'documentation', 'admin', '2022-12-09 15:42:17', 'admin', '2024-03-05 06:00:32', ''), (2010, '供应商管理', 2008, 3, 'supplier-manage', 'pmhub-purchase/provider-manage', NULL, 1, 0, 'C', '0', '0', '', 'list', 'admin', '2022-12-09 16:06:34', 'admin', '2022-12-13 09:10:04', ''), (2011, '供应商详情', 2010, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:query', '#', 'admin', '2022-12-09 16:10:05', 'admin', '2023-01-18 16:45:42', ''), (2012, '仓库新增', 2007, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:add', '#', 'admin', '2022-12-09 17:59:38', '', NULL, ''), (2013, '仓库删除', 2007, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:remove', '#', 'admin', '2022-12-09 18:08:46', '', NULL, ''), (2014, '仓库修改', 2007, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:edit', '#', 'admin', '2022-12-09 18:10:23', '', NULL, ''), (2015, '列表', 2007, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse-manage:storemanage:list', '#', 'admin', '2022-12-09 18:18:50', 'admin', '2022-12-09 18:30:55', ''), (2016, '详情', 2002, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-project:my-project:info', '#', 'admin', '2022-12-12 10:33:04', 'admin', '2022-12-12 10:33:21', ''), (2017, '物料类别', 2009, 2, 'materials-sort', 'pmhub-materials/materials-sort', NULL, 1, 0, 'C', '0', '0', '', 'list', 'admin', '2022-12-20 09:13:16', 'admin', '2022-12-21 11:32:17', ''), (2018, '详情', 2004, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-project:my-task:info', '#', 'admin', '2022-12-20 09:42:12', '', NULL, ''), (2019, '采购入库', 2008, 1, 'purchase-inbound', 'pmhub-purchase/purchase-inbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-purchase:purchase-inbound', 'list', 'admin', '2022-12-20 17:30:05', 'admin', '2022-12-20 17:30:38', ''), (2020, '采购退货出库', 2008, 2, 'purchase-return-outbound', 'pmhub-purchase/purchase-return-outbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-purchase:purchase-return-outbound', 'list', 'admin', '2022-12-20 17:31:38', 'admin', '2022-12-20 17:32:00', ''), (2022, '其他入库', 2006, 3, 'other-inbound', 'pmhub-storehouse/other-inbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-storehouse:other-inbound', 'list', 'admin', '2022-12-21 11:55:11', 'admin', '2023-04-11 14:02:01', ''), (2023, '其他出库', 2006, 4, 'other-outbound', 'pmhub-storehouse/other-outbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-storehouse:other-outbound', 'list', 'admin', '2022-12-21 11:55:50', 'admin', '2023-04-11 14:02:06', ''), (2024, '物料明细', 2009, 1, 'materials-details', 'pmhub-materials/materials-details', NULL, 1, 1, 'C', '0', '0', 'pmhub-materials:materials-details', 'list', 'admin', '2022-12-21 13:42:46', '', NULL, ''), (2025, '物料台账', 2009, 3, 'materials-bill', 'pmhub-materials/materials-bill', NULL, 1, 1, 'C', '0', '0', 'pmhub-materials:materials-bill', 'list', 'admin', '2022-12-21 13:43:26', '', NULL, ''), (2028, '文件上传', 2016, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:upload', '#', 'admin', '2023-01-04 17:31:41', '', NULL, ''), (2029, '新增项目', 2002, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:add', '#', 'admin', '2023-01-04 17:49:54', '', NULL, ''), (2030, '首页统计', 2002, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:statistics', '#', 'admin', '2023-01-04 17:50:16', '', NULL, ''), (2031, '与我有关的项目', 2002, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:select', '#', 'admin', '2023-01-04 17:50:49', '', NULL, ''), (2033, '查询所有项目', 2002, 18, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:queryAllProject', '#', 'admin', '2023-01-04 17:52:38', 'admin', '2023-01-05 14:37:04', ''), (2034, '进行中的项目', 2002, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:doing', '#', 'admin', '2023-01-04 17:53:03', '', NULL, ''), (2035, '首页-我的任务', 2002, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryMyTaskList', '#', 'admin', '2023-01-04 17:55:48', '', NULL, ''), (2036, '项目列表', 2002, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:list', '#', 'admin', '2023-01-04 18:02:59', '', NULL, ''), (2037, '修改项目', 2002, 8, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:edit', '#', 'admin', '2023-01-04 18:03:27', '', NULL, ''), (2038, '删除项目', 2002, 9, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:delete', '#', 'admin', '2023-01-04 18:03:58', '', NULL, ''), (2039, '项目归档', 2002, 10, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:archive', '#', 'admin', '2023-01-04 18:04:24', '', NULL, ''), (2040, '退出项目', 2002, 11, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:quit', '#', 'admin', '2023-01-04 18:04:44', '', NULL, ''), (2041, '概况-任务每日新增趋势', 2002, 12, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:taskStatisticsByDate', '#', 'admin', '2023-01-04 18:05:03', '', NULL, ''), (2042, '项目详情-任务列表', 2002, 13, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:detail:taskList', '#', 'admin', '2023-01-04 18:05:27', '', NULL, ''), (2043, '文件上传', 2002, 14, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:upload', '#', 'admin', '2023-01-04 18:08:27', '', NULL, ''), (2044, '文件列表', 2002, 15, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:queryFileList', '#', 'admin', '2023-01-04 18:08:53', '', NULL, ''), (2045, '文件重命名', 2002, 16, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:rename', '#', 'admin', '2023-01-04 18:09:16', '', NULL, ''), (2046, '文件删除', 2002, 17, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:delete', '#', 'admin', '2023-01-04 18:09:34', '', NULL, ''), (2047, '首页-我的任务', 2004, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryMyTaskList', '#', 'admin', '2023-01-05 14:54:23', '', NULL, ''), (2048, '概况-任务概况', 2004, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:situation', '#', 'admin', '2023-01-05 15:31:15', '', NULL, ''), (2049, '删除任务', 2004, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:delete', '#', 'admin', '2023-01-05 15:31:44', '', NULL, ''), (2050, '任务详情', 2004, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:detail', '#', 'admin', '2023-01-05 15:32:06', '', NULL, ''), (2051, '任务详情-查询执行人', 2004, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryExecutorList', '#', 'admin', '2023-01-05 15:33:07', '', NULL, ''), (2052, '添加任务', 2004, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:add', '#', 'admin', '2023-01-05 15:34:44', '', NULL, ''), (2053, '添加子任务', 2004, 8, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:addChildTask', '#', 'admin', '2023-01-05 15:35:08', '', NULL, ''), (2054, '修改任务', 2004, 9, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:edit', '#', 'admin', '2023-01-05 15:40:33', '', NULL, ''), (2055, '我的任务列表', 2004, 10, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:list', '#', 'admin', '2023-01-05 15:40:56', '', NULL, ''), (2056, '查询子任务', 2004, 11, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryChildTask', '#', 'admin', '2023-01-05 15:44:53', '', NULL, ''), (2057, '添加评论', 2004, 12, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:addCOMMENT ''#', 'admin', '2023-01-05 15:46:02', '', NULL, ''), (2058, '任务动态', 2004, 13, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:logList', '#', 'admin', '2023-01-05 15:46:53', '', NULL, ''), (2059, '导入任务', 2004, 14, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:import', '#', 'admin', '2023-01-05 15:47:31', '', NULL, ''), (2060, '项目阶段列表', 2002, 19, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:list', '#', 'admin', '2023-01-05 15:53:02', '', NULL, ''), (2061, '添加项目阶段', 2002, 20, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:add', '#', 'admin', '2023-01-05 15:53:33', '', NULL, ''), (2062, '编辑项目阶段', 2002, 21, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:edit', '#', 'admin', '2023-01-05 15:53:56', '', NULL, ''), (2063, '删除项目阶段', 2002, 22, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:stage:delete', '#', 'admin', '2023-01-05 15:54:16', '', NULL, ''), (2064, '添加成员', 2002, 23, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:inviteMemberList', '#', 'admin', '2023-01-05 15:56:00', '', NULL, ''), (2065, '移除成员', 2002, 24, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:removeMemberList', '#', 'admin', '2023-01-05 15:56:22', '', NULL, ''), (2066, '搜索成员', 2002, 25, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:list', '#', 'admin', '2023-01-05 15:56:39', '', NULL, ''), (2067, '获取用户列表', 2002, 26, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:queryUserList', '#', 'admin', '2023-01-05 15:57:03', '', NULL, ''), (2068, '获取已加入项目成员', 2002, 27, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:member:queryUserListById', '#', 'admin', '2023-01-05 15:57:37', '', NULL, ''), (2069, '项目动态', 2002, 28, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:log:list', '#', 'admin', '2023-01-05 15:58:06', '', NULL, ''), (2070, '收藏项目', 2002, 30, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:collect', '#', 'admin', '2023-01-05 15:59:10', '', NULL, ''), (2071, '取消收藏项目', 2002, 31, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:cancelCollect', '#', 'admin', '2023-01-05 15:59:29', '', NULL, ''), (2074, '首页（别删）', 0, 1, '虚拟首页不用配置', NULL, NULL, 1, 0, 'M', '1', '1', '', 'dashboard', 'admin', '2023-01-13 15:33:05', 'admin', '2023-02-23 14:26:08', ''), (2075, '首页统计', 2074, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:statistics', '#', 'admin', '2023-01-13 15:35:27', '', NULL, ''), (2076, '与我有关的项目', 2074, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:select', '#', 'admin', '2023-01-13 15:35:53', '', NULL, ''), (2077, '进行中的项目', 2074, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:doing', '#', 'admin', '2023-01-13 15:36:13', '', NULL, ''), (2078, '首页-我的任务列表', 2074, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:queryMyTaskList', '#', 'admin', '2023-01-13 15:37:15', '', NULL, ''), (2079, '查询', 2024, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:list', '#', 'admin', '2023-01-18 16:35:00', 'admin', '2023-01-18 16:44:41', ''), (2080, '新增', 2024, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:add', '#', 'admin', '2023-01-18 16:37:06', '', NULL, ''), (2081, '编辑', 2024, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:edit', '#', 'admin', '2023-01-18 16:37:34', '', NULL, ''), (2082, '删除', 2024, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:delete', '#', 'admin', '2023-01-18 16:37:54', '', NULL, ''), (2083, '查询', 2017, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:list', '#', 'admin', '2023-01-18 16:42:06', '', NULL, ''), (2084, '新增', 2017, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:add', '#', 'admin', '2023-01-18 16:42:28', '', NULL, ''), (2086, '删除', 2017, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:delete', '#', 'admin', '2023-01-18 16:42:59', '', NULL, ''), (2087, '供应商列表', 2010, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:list', '#', 'admin', '2023-01-18 16:44:51', '', NULL, ''), (2088, '查询', 2025, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-records:list', '#', 'admin', '2023-01-18 16:45:03', '', NULL, ''), (2091, '新增供应商', 2010, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:add', '#', 'admin', '2023-01-18 16:46:05', 'admin', '2023-04-06 14:56:16', ''), (2093, '修改供应商', 2010, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:edit', '#', 'admin', '2023-01-18 16:46:23', '', NULL, ''), (2094, '删除供应商', 2010, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:remove', '#', 'admin', '2023-01-18 16:46:50', '', NULL, ''), (2095, '编辑', 2017, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-type:edit', '#', 'admin', '2023-01-18 16:46:50', '', NULL, ''), (2096, '查询', 2022, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:list', '#', 'admin', '2023-01-18 16:50:52', '', NULL, ''), (2097, '新增', 2022, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:add', '#', 'admin', '2023-01-18 16:51:08', '', NULL, ''), (2098, '编辑', 2022, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:edit', '#', 'admin', '2023-01-18 16:51:24', '', NULL, ''), (2099, '删除', 2022, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:delete', '#', 'admin', '2023-01-18 16:51:50', '', NULL, ''), (2100, '查询', 2023, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:list', '#', 'admin', '2023-01-18 16:53:37', '', NULL, ''), (2101, '新增', 2023, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:add', '#', 'admin', '2023-01-18 16:54:09', '', NULL, ''), (2102, '编辑', 2023, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:edit', '#', 'admin', '2023-01-18 16:54:49', '', NULL, ''), (2103, '删除', 2023, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-take-out:delete', '#', 'admin', '2023-01-18 16:55:15', '', NULL, ''), (2104, '查询', 2019, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:list', '#', 'admin', '2023-01-18 16:56:41', '', NULL, ''), (2105, '新增', 2019, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:add', '#', 'admin', '2023-01-18 16:57:01', '', NULL, ''), (2106, '编辑', 2019, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:edit', '#', 'admin', '2023-01-18 16:57:19', '', NULL, ''), (2107, '删除', 2019, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:purchase:delete', '#', 'admin', '2023-01-18 16:57:37', '', NULL, ''), (2108, '查询', 2020, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:list', '#', 'admin', '2023-01-18 16:58:40', '', NULL, ''), (2109, '新增', 2020, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:add', '#', 'admin', '2023-01-18 16:58:55', '', NULL, ''), (2110, '编辑', 2020, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:edit', '#', 'admin', '2023-01-18 16:59:11', '', NULL, ''), (2111, '删除', 2020, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:cancel:delete', '#', 'admin', '2023-01-18 16:59:22', '', NULL, ''), (2112, '查询供应商名称', 2010, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:getProviderName', '#', 'admin', '2023-01-18 17:15:43', 'admin', '2023-01-18 17:15:54', ''), (2113, '导出', 2024, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials:export', '#', 'admin', '2023-01-18 17:27:39', '', NULL, ''), (2114, '导出', 2025, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-records:export', '#', 'admin', '2023-01-18 17:28:03', 'admin', '2023-01-18 17:28:15', ''), (2115, '项目详情', 2002, 32, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:manage:detail', '#', 'admin', '2023-01-19 10:54:47', '', NULL, ''), (2116, '审批管理（备份）', 0, 6, 'pmhub-approval', NULL, NULL, 1, 0, 'M', '0', '1', '', 'checkbox', 'admin', '2023-02-14 14:34:15', 'admin', '2023-02-23 10:00:13', ''), (2117, '发起申请', 2116, 1, 'send-application', 'pmhub-approval/send-application', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:send-application', 'list', 'admin', '2023-02-14 14:35:52', 'admin', '2023-02-14 14:41:26', ''), (2118, '我的申请', 2116, 2, 'my-application', 'pmhub-approval/my-application', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:my-application', 'list', 'admin', '2023-02-14 14:38:24', '', NULL, ''), (2119, '我审批的', 2116, 3, 'I-approve', 'pmhub-approval/I-approve', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:I-approve', 'list', 'admin', '2023-02-14 14:39:00', '', NULL, ''), (2120, '审批设置', 2116, 4, 'approval-settings', 'pmhub-approval/approval-settings', NULL, 1, 1, 'C', '0', '0', 'pmhub-approval:approval-settings', 'list', 'admin', '2023-02-14 14:39:36', '', NULL, ''), (2122, '审批', 2004, 15, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:process:start', '#', 'admin', '2023-03-13 15:29:47', 'admin', '2023-03-13 15:30:34', ''), (2123, '模板列表', 2004, 16, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:queryFileList', '#', 'admin', '2023-03-13 15:35:38', 'admin', '2023-03-13 15:36:42', ''), (2124, '模板删除', 2004, 17, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:file:delete', '#', 'admin', '2023-03-13 15:36:09', 'admin', '2023-03-13 15:36:37', ''), (2125, '审批设置', 2004, 19, '', NULL, NULL, 1, 0, 'F', '0', '0', 'project:task:updateApprovalSet', '#', 'admin', '2023-03-13 15:41:26', 'admin', '2023-03-13 15:53:27', ''), (2126, '流程列表', 2004, 18, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:process:startList', '#', 'admin', '2023-03-13 15:53:14', 'admin', '2023-03-13 15:53:35', ''), (2127, '流程分类', 2004, 20, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:category:listAll', '#', 'admin', '2023-03-13 15:53:14', 'admin', '2023-03-13 15:53:35', ''), (2128, '归还入库', 2006, 2, 'return-inbound', 'pmhub-storehouse/return-inbound', NULL, 1, 1, 'C', '0', '0', 'pmhub-storehouse:other-inbound', 'list', 'admin', '2023-04-11 14:01:48', 'admin', '2023-04-11 14:07:46', ''), (2129, '查询', 2128, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:list', '#', 'admin', '2023-04-11 14:03:18', 'admin', '2023-04-11 14:03:58', ''), (2130, '新增', 2128, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:add', '#', 'admin', '2023-04-11 14:03:30', 'admin', '2023-04-11 14:04:04', ''), (2131, '编辑', 2128, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:edit', '#', 'admin', '2023-04-11 14:03:39', 'admin', '2023-04-11 14:04:16', ''), (2132, '删除', 2128, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:other-into:delete', '#', 'admin', '2023-04-11 14:03:47', 'admin', '2023-04-11 14:04:23', ''), (2133, '审批设置', 2019, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:inbound:updateApprovalSet', '#', 'admin', '2023-05-05 09:29:33', '', NULL, ''), (2134, '审批设置', 2020, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:outbound:updateApprovalSet', '#', 'admin', '2023-05-05 09:30:16', '', NULL, ''), (2135, '发起审批', 2019, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:inbound:approve', '#', 'admin', '2023-05-05 09:30:44', '', NULL, ''), (2136, '发起审批', 2020, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'purchase:outbound:approve', '#', 'admin', '2023-05-05 09:31:04', '', NULL, ''), (2137, '审批设置', 2128, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:returnInto:updateApprovalSet', '#', 'admin', '2023-05-05 09:32:42', '', NULL, ''), (2138, '审批设置', 2022, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherInto:updateApprovalSet', '#', 'admin', '2023-05-05 09:33:06', '', NULL, ''), (2139, '审批设置', 2023, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherOut:updateApprovalSet', '#', 'admin', '2023-05-05 09:33:33', '', NULL, ''), (2140, '发起审批', 2022, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherInto:approve', '#', 'admin', '2023-05-05 09:33:55', '', NULL, ''), (2141, '发起审批', 2023, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:otherOut:approve', '#', 'admin', '2023-05-05 09:34:13', '', NULL, ''), (2142, '发起审批', 2128, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'storehouse:returnInto:approve', '#', 'admin', '2023-05-05 09:34:35', '', NULL, ''), (2143, '审批设置', 2010, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', '	 pmhub-purchase:providerManage:updateApprovalSet', '#', 'admin', '2023-05-09 14:56:48', 'admin', '2023-05-09 14:57:17', ''), (2144, '发起审批', 2010, 8, '', NULL, NULL, 1, 0, 'F', '0', '0', 'pmhub-purchase:providerManage:approval', '#', 'admin', '2023-05-09 15:01:08', '', NULL, ''), (2145, '物料报废', 2009, 4, 'materials-scrap', 'pmhub-materials/materials-scrap', NULL, 1, 1, 'C', '0', '0', 'pmhub-materials:materials-scrap', 'list', 'admin', '2023-07-04 09:16:41', '', NULL, ''), (2146, '审批设置', 2145, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:approvalSet', '#', 'admin', '2023-07-07 14:49:56', '', NULL, ''), (2147, '报废记录列表', 2145, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:uselessList', '#', 'admin', '2023-07-11 15:07:47', '', NULL, ''), (2148, '报废记录审批', 2145, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:approve', '#', 'admin', '2023-07-11 15:08:18', '', NULL, ''), (2149, '处理意见', 2145, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:opinion', '#', 'admin', '2023-07-13 19:48:54', 'admin', '2023-07-13 19:49:08', ''), (2150, '修改责任人', 2145, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:updatePrincipalId', '#', 'zhangsan', '2023-07-13 19:51:12', '', NULL, ''), (2151, '呆滞列表查询', 2145, 6, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:list', '#', 'admin', '2023-07-13 19:53:53', '', NULL, ''), (2152, '导入', 2025, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:materials-records:import', '#', 'admin', '2023-07-18 16:44:41', 'admin', '2023-07-18 16:45:06', ''), (2153, '导入', 2024, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', '	 materials:materials:import', '#', 'admin', '2023-07-19 15:53:23', 'admin', '2023-07-19 15:53:47', ''), (2154, '流程激活或者挂起', 124, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'workflow:deploy:state', '#', 'admin', '2023-07-21 09:51:06', '', NULL, ''), (2155, '导出记录', 2145, 7, '', NULL, NULL, 1, 0, 'F', '0', '0', 'materials:useless:export', '#', 'zhangsan', '2023-09-11 11:52:35', '', NULL, ''), (2156, '供应商类别', 2008, 4, 'provider-sort', 'pmhub-purchase/provider-sort', NULL, 1, 0, 'C', '0', '0', NULL, 'tree', 'admin', '2023-11-16 14:58:15', '', NULL, ''), (2157, '后台任务', 3, 3, 'async', 'tool/async/index', NULL, 1, 0, 'C', '0', '0', '', 'druid', 'admin', '2023-12-22 10:27:41', 'zhangsan', '2023-12-27 16:26:24', ''), (2158, '查询', 2156, 0, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:list', '#', 'admin', '2024-01-04 14:02:54', '', NULL, ''), (2159, '新增', 2156, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:add', '#', 'admin', '2024-01-04 14:03:27', '', NULL, ''), (2160, '编辑', 2156, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:edit', '#', 'admin', '2024-01-04 14:03:49', '', NULL, ''), (2161, '删除', 2156, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'codeautoflow:common-category:delete', '#', 'admin', '2024-01-04 14:04:13', '', NULL, ''), (2163, '超级网盘', 3, 10, 'https://nextcloud.pmhubetech.com:8083/', NULL, NULL, 0, 0, 'M', '1', '1', '', 'search', 'test_admin', '2024-01-08 10:32:10', 'admin', '2024-03-05 06:00:56', ''), (2164, '工具管理', 3, 5, 'pmhub-tools', 'tool/pmhub-tool/index', NULL, 1, 0, 'C', '1', '1', '', 'tool', 'admin', '2024-01-12 11:17:34', 'admin', '2024-03-05 06:00:47', ''), (2166, '修改', 2164, 2, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:edit', '#', 'admin', '2024-01-15 15:40:23', 'admin', '2024-01-15 15:42:59', ''), (2167, '删除', 2164, 3, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:remove', '#', 'admin', '2024-01-15 15:40:51', 'admin', '2024-01-15 15:43:11', ''), (2168, '新增', 2164, 4, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:add', '#', 'admin', '2024-01-15 15:42:00', 'admin', '2024-01-15 15:42:43', ''), (2169, '列表', 2164, 5, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:list', '#', 'admin', '2024-01-15 15:46:11', '', NULL, ''), (2170, '详情', 2164, 1, '', NULL, NULL, 1, 0, 'F', '0', '0', 'toolManage:toolManage:query', '#', 'admin', '2024-01-15 15:46:37', '', NULL, '');
 
 COMMIT;
 
@@ -2031,18 +2031,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_notice`;
 CREATE TABLE `sys_notice`  (
-                               `notice_id` int NOT NULL AUTO_INCREMENT COMMENT '公告ID',
-                               `notice_title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '公告标题',
-                               `notice_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '公告类型（1通知 2公告）',
-                               `notice_content` longblob NULL COMMENT '公告内容',
-                               `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '公告状态（0正常 1关闭）',
-                               `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                               `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                               `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                               `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                               `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                               `notice_id` int NOT NULL AUTO_INCREMENT COMMENT '',
+                               `notice_title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                               `notice_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                               `notice_content` longblob NULL COMMENT '',
+                               `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                               `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                               `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                               `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                               `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                                PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '通知公告表';
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 -- ----------------------------
@@ -2058,24 +2058,24 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_oper_log`;
 CREATE TABLE `sys_oper_log`  (
-                                 `oper_id` bigint NOT NULL AUTO_INCREMENT COMMENT '日志主键',
-                                 `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '模块标题',
-                                 `business_type` int NULL DEFAULT 0 COMMENT '业务类型（0其它 1新增 2修改 3删除）',
-                                 `method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '方法名称',
-                                 `request_method` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '请求方式',
-                                 `operator_type` int NULL DEFAULT 0 COMMENT '操作类别（0其它 1后台用户 2手机端用户）',
-                                 `oper_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '操作人员',
-                                 `dept_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '部门名称',
-                                 `oper_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '请求URL',
-                                 `oper_ip` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '主机地址',
-                                 `oper_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '操作地点',
-                                 `oper_param` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '请求参数',
-                                 `json_result` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '返回参数',
-                                 `status` int NULL DEFAULT 0 COMMENT '操作状态（0正常 1异常）',
-                                 `error_msg` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '错误消息',
-                                 `oper_time` datetime NULL DEFAULT NULL COMMENT '操作时间',
+                                 `oper_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                                 `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `business_type` int NULL DEFAULT 0 COMMENT '',
+                                 `method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `request_method` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `operator_type` int NULL DEFAULT 0 COMMENT '',
+                                 `oper_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `dept_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `oper_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `oper_ip` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `oper_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `oper_param` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `json_result` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `status` int NULL DEFAULT 0 COMMENT '',
+                                 `error_msg` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                                 `oper_time` datetime NULL DEFAULT NULL COMMENT '',
                                  PRIMARY KEY (`oper_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13217 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录';
+) ENGINE = InnoDB AUTO_INCREMENT = 13217 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 
@@ -2084,18 +2084,18 @@ CREATE TABLE `sys_oper_log`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_post`;
 CREATE TABLE `sys_post`  (
-                             `post_id` bigint NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
-                             `post_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '岗位编码',
-                             `post_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '岗位名称',
-                             `post_sort` int NOT NULL COMMENT '显示顺序',
-                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态（0正常 1停用）',
-                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                             `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                             `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                             `post_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                             `post_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `post_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `post_sort` int NOT NULL COMMENT '',
+                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                              PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '岗位信息表';
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_post
@@ -2112,22 +2112,22 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role`  (
-                             `role_id` bigint NOT NULL AUTO_INCREMENT COMMENT '角色ID',
-                             `role_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色名称',
-                             `role_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色权限字符串',
-                             `role_sort` int NOT NULL COMMENT '显示顺序',
-                             `data_scope` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）',
-                             `menu_check_strictly` tinyint(1) NULL DEFAULT 1 COMMENT '菜单树选择项是否关联显示',
-                             `dept_check_strictly` tinyint(1) NULL DEFAULT 1 COMMENT '部门树选择项是否关联显示',
-                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色状态（0正常 1停用）',
-                             `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                             `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                             `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                             `role_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                             `role_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `role_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `role_sort` int NOT NULL COMMENT '',
+                             `data_scope` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '',
+                             `menu_check_strictly` tinyint(1) NULL DEFAULT 1 COMMENT '',
+                             `dept_check_strictly` tinyint(1) NULL DEFAULT 1 COMMENT '',
+                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                              PRIMARY KEY (`role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 114 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色信息表';
+) ENGINE = InnoDB AUTO_INCREMENT = 114 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_role
@@ -2141,10 +2141,10 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_dept`;
 CREATE TABLE `sys_role_dept`  (
-                                  `role_id` bigint NOT NULL COMMENT '角色ID',
-                                  `dept_id` bigint NOT NULL COMMENT '部门ID',
+                                  `role_id` bigint NOT NULL COMMENT '',
+                                  `dept_id` bigint NOT NULL COMMENT '',
                                   PRIMARY KEY (`role_id`, `dept_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色和部门关联表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_role_dept
@@ -2158,10 +2158,10 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu`  (
-                                  `role_id` bigint NOT NULL COMMENT '角色ID',
-                                  `menu_id` bigint NOT NULL COMMENT '菜单ID',
+                                  `role_id` bigint NOT NULL COMMENT '',
+                                  `menu_id` bigint NOT NULL COMMENT '',
                                   PRIMARY KEY (`role_id`, `menu_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色和菜单关联表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 -- ----------------------------
@@ -2177,30 +2177,30 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
-                             `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-                             `dept_id` bigint NULL DEFAULT NULL COMMENT '部门ID',
-                             `leader_id` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '直属上级id',
-                             `user_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户账号',
-                             `user_wx_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '企微用户id',
-                             `nick_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户昵称',
-                             `user_type` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '00' COMMENT '用户类型（00系统用户）',
-                             `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '用户邮箱',
-                             `phonenumber` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '手机号码',
-                             `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',
-                             `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '头像地址',
-                             `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '密码',
-                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '帐号状态（0正常 1停用）',
-                             `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-                             `login_ip` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '最后登录IP',
-                             `login_date` datetime NULL DEFAULT NULL COMMENT '最后登录时间',
-                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
-                             `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
-                             `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+                             `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '',
+                             `dept_id` bigint NULL DEFAULT NULL COMMENT '',
+                             `leader_id` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `user_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `user_wx_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
+                             `nick_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '',
+                             `user_type` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '00' COMMENT '',
+                             `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `phonenumber` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '',
+                             `login_ip` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `login_date` datetime NULL DEFAULT NULL COMMENT '',
+                             `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `create_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '',
+                             `update_time` datetime NULL DEFAULT NULL COMMENT '',
+                             `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '',
                              PRIMARY KEY (`user_id`) USING BTREE,
                              UNIQUE INDEX `sys_user_pk`(`user_name` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户信息表';
+) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 
 -- ----------------------------
@@ -2215,10 +2215,10 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_post`;
 CREATE TABLE `sys_user_post`  (
-                                  `user_id` bigint NOT NULL COMMENT '用户ID',
-                                  `post_id` bigint NOT NULL COMMENT '岗位ID',
+                                  `user_id` bigint NOT NULL COMMENT '',
+                                  `post_id` bigint NOT NULL COMMENT '',
                                   PRIMARY KEY (`user_id`, `post_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户与岗位关联表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_user_post
@@ -2232,10 +2232,10 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role`  (
-                                  `user_id` bigint NOT NULL COMMENT '用户ID',
-                                  `role_id` bigint NOT NULL COMMENT '角色ID',
+                                  `user_id` bigint NOT NULL COMMENT '',
+                                  `role_id` bigint NOT NULL COMMENT '',
                                   PRIMARY KEY (`user_id`, `role_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户和角色关联表';
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT '';
 
 -- ----------------------------
 -- Records of sys_user_role
@@ -2283,16 +2283,16 @@ DROP TABLE IF EXISTS QRTZ_CALENDARS;
 -- 1、存储每一个已配置�?jobDetail 的详细信�?-- ----------------------------
 create table QRTZ_JOB_DETAILS
 (
-    sched_name        varchar(120) not null comment '调度名称',
-    job_name          varchar(200) not null comment '任务名称',
-    job_group         varchar(200) not null comment '任务组名',
-    description       varchar(250) null comment '相关介绍',
+    sched_name        varchar(120) not null COMMENT '',
+    job_name          varchar(200) not null COMMENT '',
+    job_group         varchar(200) not null COMMENT '',
+    description       varchar(250) null COMMENT '',
     job_class_name    varchar(250) not null comment '执行任务类名�?,
     is_durable        varchar(1)   not null comment '是否持久�?,
-    is_nonconcurrent  varchar(1)   not null comment '是否并发',
-    is_update_data    varchar(1)   not null comment '是否更新数据',
-    requests_recovery varchar(1)   not null comment '是否接受恢复执行',
-    job_data          blob null comment '存放持久化job对象',
+    is_nonconcurrent  varchar(1)   not null COMMENT '',
+    is_update_data    varchar(1)   not null COMMENT '',
+    requests_recovery varchar(1)   not null COMMENT '',
+    job_data          blob null COMMENT '',
     primary key (sched_name, job_name, job_group)
 ) engine=innodb comment = '任务详细信息�?;
 
@@ -2300,31 +2300,31 @@ create table QRTZ_JOB_DETAILS
 -- 2�?存储已配置的 Trigger 的信�?-- ----------------------------
 create table QRTZ_TRIGGERS
 (
-    sched_name     varchar(120) not null comment '调度名称',
-    trigger_name   varchar(200) not null comment '触发器的名字',
+    sched_name     varchar(120) not null COMMENT '',
+    trigger_name   varchar(200) not null COMMENT '',
     trigger_group  varchar(200) not null comment '触发器所属组的名�?,
     job_name       varchar(200) not null comment 'qrtz_job_details表job_name的外�?,
     job_group      varchar(200) not null comment 'qrtz_job_details表job_group的外�?,
-    description    varchar(250) null comment '相关介绍',
+    description    varchar(250) null COMMENT '',
     next_fire_time bigint(13) null comment '上一次触发时间（毫秒�?,
-    prev_fire_time bigint(13) null comment '下一次触发时间（默认�?1表示不触发）',
+    prev_fire_time bigint(13) null COMMENT '',
     priority       integer null comment '优先�?,
     trigger_state  varchar(16)  not null comment '触发器状�?,
-    trigger_type   varchar(8)   not null comment '触发器的类型',
+    trigger_type   varchar(8)   not null COMMENT '',
     start_time     bigint(13) not null comment '开始时�?,
-    end_time       bigint(13) null comment '结束时间',
+    end_time       bigint(13) null COMMENT '',
     calendar_name  varchar(200) null comment '日程表名�?,
     misfire_instr  smallint(2) null comment '补偿执行的策�?,
-    job_data       blob null comment '存放持久化job对象',
+    job_data       blob null COMMENT '',
     primary key (sched_name, trigger_name, trigger_group),
     foreign key (sched_name, job_name, job_group) references QRTZ_JOB_DETAILS (sched_name, job_name, job_group)
-) engine=innodb comment = '触发器详细信息表';
+) engine=innodb COMMENT '';
 
 -- ----------------------------
 -- 3�?存储简单的 Trigger，包括重复次数，间隔，以及已触发的次�?-- ----------------------------
 create table QRTZ_SIMPLE_TRIGGERS
 (
-    sched_name      varchar(120) not null comment '调度名称',
+    sched_name      varchar(120) not null COMMENT '',
     trigger_name    varchar(200) not null comment 'qrtz_triggers表trigger_name的外�?,
     trigger_group   varchar(200) not null comment 'qrtz_triggers表trigger_group的外�?,
     repeat_count    bigint(7) not null comment '重复的次数统�?,
@@ -2332,18 +2332,18 @@ create table QRTZ_SIMPLE_TRIGGERS
     times_triggered bigint(10) not null comment '已经触发的次�?,
     primary key (sched_name, trigger_name, trigger_group),
     foreign key (sched_name, trigger_name, trigger_group) references QRTZ_TRIGGERS (sched_name, trigger_name, trigger_group)
-) engine=innodb comment = '简单触发器的信息表';
+) engine=innodb COMMENT '';
 
 -- ----------------------------
 -- 4�?存储 Cron Trigger，包�?Cron 表达式和时区信息
 -- ---------------------------- 
 create table QRTZ_CRON_TRIGGERS
 (
-    sched_name      varchar(120) not null comment '调度名称',
+    sched_name      varchar(120) not null COMMENT '',
     trigger_name    varchar(200) not null comment 'qrtz_triggers表trigger_name的外�?,
     trigger_group   varchar(200) not null comment 'qrtz_triggers表trigger_group的外�?,
     cron_expression varchar(200) not null comment 'cron表达�?,
-    time_zone_id    varchar(80) comment '时区',
+    time_zone_id    varchar(80) COMMENT '',
     primary key (sched_name, trigger_name, trigger_group),
     foreign key (sched_name, trigger_name, trigger_group) references QRTZ_TRIGGERS (sched_name, trigger_name, trigger_group)
 ) engine=innodb comment = 'Cron类型的触发器�?;
@@ -2353,10 +2353,10 @@ create table QRTZ_CRON_TRIGGERS
 -- ---------------------------- 
 create table QRTZ_BLOB_TRIGGERS
 (
-    sched_name    varchar(120) not null comment '调度名称',
+    sched_name    varchar(120) not null COMMENT '',
     trigger_name  varchar(200) not null comment 'qrtz_triggers表trigger_name的外�?,
     trigger_group varchar(200) not null comment 'qrtz_triggers表trigger_group的外�?,
-    blob_data     blob null comment '存放持久化Trigger对象',
+    blob_data     blob null COMMENT '',
     primary key (sched_name, trigger_name, trigger_group),
     foreign key (sched_name, trigger_name, trigger_group) references QRTZ_TRIGGERS (sched_name, trigger_name, trigger_group)
 ) engine=innodb comment = 'Blob类型的触发器�?;
@@ -2365,9 +2365,9 @@ create table QRTZ_BLOB_TRIGGERS
 -- 6�?�?Blob 类型存储存放日历信息�?quartz可配置一个日历来指定一个时间范�?-- ---------------------------- 
 create table QRTZ_CALENDARS
 (
-    sched_name    varchar(120) not null comment '调度名称',
-    calendar_name varchar(200) not null comment '日历名称',
-    calendar      blob         not null comment '存放持久化calendar对象',
+    sched_name    varchar(120) not null COMMENT '',
+    calendar_name varchar(200) not null COMMENT '',
+    calendar      blob         not null COMMENT '',
     primary key (sched_name, calendar_name)
 ) engine=innodb comment = '日历信息�?;
 
@@ -2376,7 +2376,7 @@ create table QRTZ_CALENDARS
 -- ---------------------------- 
 create table QRTZ_PAUSED_TRIGGER_GRPS
 (
-    sched_name    varchar(120) not null comment '调度名称',
+    sched_name    varchar(120) not null COMMENT '',
     trigger_group varchar(200) not null comment 'qrtz_triggers表trigger_group的外�?,
     primary key (sched_name, trigger_group)
 ) engine=innodb comment = '暂停的触发器�?;
@@ -2385,40 +2385,40 @@ create table QRTZ_PAUSED_TRIGGER_GRPS
 -- 8�?存储与已触发�?Trigger 相关的状态信息，以及相联 Job 的执行信�?-- ---------------------------- 
 create table QRTZ_FIRED_TRIGGERS
 (
-    sched_name        varchar(120) not null comment '调度名称',
-    entry_id          varchar(95)  not null comment '调度器实例id',
+    sched_name        varchar(120) not null COMMENT '',
+    entry_id          varchar(95)  not null COMMENT '',
     trigger_name      varchar(200) not null comment 'qrtz_triggers表trigger_name的外�?,
     trigger_group     varchar(200) not null comment 'qrtz_triggers表trigger_group的外�?,
-    instance_name     varchar(200) not null comment '调度器实例名',
+    instance_name     varchar(200) not null COMMENT '',
     fired_time        bigint(13) not null comment '触发的时�?,
-    sched_time        bigint(13) not null comment '定时器制定的时间',
+    sched_time        bigint(13) not null COMMENT '',
     priority          integer      not null comment '优先�?,
     state             varchar(16)  not null comment '状�?,
-    job_name          varchar(200) null comment '任务名称',
-    job_group         varchar(200) null comment '任务组名',
-    is_nonconcurrent  varchar(1) null comment '是否并发',
-    requests_recovery varchar(1) null comment '是否接受恢复执行',
+    job_name          varchar(200) null COMMENT '',
+    job_group         varchar(200) null COMMENT '',
+    is_nonconcurrent  varchar(1) null COMMENT '',
+    requests_recovery varchar(1) null COMMENT '',
     primary key (sched_name, entry_id)
-) engine=innodb comment = '已触发的触发器表';
+) engine=innodb COMMENT '';
 
 -- ----------------------------
 -- 9�?存储少量的有�?Scheduler 的状态信息，假如是用于集群中，可以看到其他的 Scheduler 实例
 -- ---------------------------- 
 create table QRTZ_SCHEDULER_STATE
 (
-    sched_name        varchar(120) not null comment '调度名称',
-    instance_name     varchar(200) not null comment '实例名称',
+    sched_name        varchar(120) not null COMMENT '',
+    instance_name     varchar(200) not null COMMENT '',
     last_checkin_time bigint(13) not null comment '上次检查时�?,
     checkin_interval  bigint(13) not null comment '检查间隔时�?,
     primary key (sched_name, instance_name)
-) engine=innodb comment = '调度器状态表';
+) engine=innodb COMMENT '';
 
 -- ----------------------------
 -- 10�?存储程序的悲观锁的信�?假如使用了悲观锁)
 -- ---------------------------- 
 create table QRTZ_LOCKS
 (
-    sched_name varchar(120) not null comment '调度名称',
+    sched_name varchar(120) not null COMMENT '',
     lock_name  varchar(40)  not null comment '悲观锁名�?,
     primary key (sched_name, lock_name)
 ) engine=innodb comment = '存储的悲观锁信息�?;
@@ -2428,22 +2428,22 @@ create table QRTZ_LOCKS
 -- ---------------------------- 
 create table QRTZ_SIMPROP_TRIGGERS
 (
-    sched_name    varchar(120) not null comment '调度名称',
+    sched_name    varchar(120) not null COMMENT '',
     trigger_name  varchar(200) not null comment 'qrtz_triggers表trigger_name的外�?,
     trigger_group varchar(200) not null comment 'qrtz_triggers表trigger_group的外�?,
     str_prop_1    varchar(512) null comment 'String类型的trigger的第一个参�?,
-    str_prop_2    varchar(512) null comment 'String类型的trigger的第二个参数',
-    str_prop_3    varchar(512) null comment 'String类型的trigger的第三个参数',
+    str_prop_2    varchar(512) null COMMENT '',
+    str_prop_3    varchar(512) null COMMENT '',
     int_prop_1    int null comment 'int类型的trigger的第一个参�?,
-    int_prop_2    int null comment 'int类型的trigger的第二个参数',
+    int_prop_2    int null COMMENT '',
     long_prop_1   bigint null comment 'long类型的trigger的第一个参�?,
-    long_prop_2   bigint null comment 'long类型的trigger的第二个参数',
+    long_prop_2   bigint null COMMENT '',
     dec_prop_1    numeric(13, 4) null comment 'decimal类型的trigger的第一个参�?,
-    dec_prop_2    numeric(13, 4) null comment 'decimal类型的trigger的第二个参数',
+    dec_prop_2    numeric(13, 4) null COMMENT '',
     bool_prop_1   varchar(1) null comment 'Boolean类型的trigger的第一个参�?,
-    bool_prop_2   varchar(1) null comment 'Boolean类型的trigger的第二个参数',
+    bool_prop_2   varchar(1) null COMMENT '',
     primary key (sched_name, trigger_name, trigger_group),
     foreign key (sched_name, trigger_name, trigger_group) references QRTZ_TRIGGERS (sched_name, trigger_name, trigger_group)
-) engine=innodb comment = '同步机制的行锁表';
+) engine=innodb COMMENT '';
 
 commit;

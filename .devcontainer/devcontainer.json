@@ -7,8 +7,7 @@
 			"installMaven": true,
 			"installGradle": false
 		},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
-		"ghcr.io/itsmechlark/features/redis-server:1": {}
+
 	},
 	"forwardPorts": [8761, 6880, 6800, 6801, 6806, 6808, 6803, 6888, 3306, 6379],
 	"portsAttributes": {
