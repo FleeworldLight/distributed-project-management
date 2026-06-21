@@ -1,0 +1,60 @@
+name: Deploy Frontend to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pmhub-ui/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: pmhub-ui
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: pmhub-ui/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set backend API URL
+        run: |
+          if [ -n "${{ secrets.BACKEND_URL }}" ]; then
+            echo "VUE_APP_BASE_API=${{ secrets.BACKEND_URL }}" >> .env.production
+          fi
+
+      - name: Build
+        run: npm run build:prod
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+          PUBLIC_PATH: /distributed-project-management/
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: pmhub-ui/dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

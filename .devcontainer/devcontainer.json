@@ -1,0 +1,35 @@
+{
+	"name": "DPM Backend (Codespace)",
+	"image": "mcr.microsoft.com/devcontainers/java:17",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "17",
+			"installMaven": true,
+			"installGradle": false
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/itsmechlark/features/redis-server:1": {}
+	},
+	"forwardPorts": [8761, 6880, 6800, 6801, 6806, 6808, 6803, 6888, 3306, 6379],
+	"portsAttributes": {
+		"6880": { "label": "Gateway API", "onAutoForward": "notify" },
+		"8761": { "label": "Eureka", "onAutoForward": "notify" },
+		"6800": { "label": "Auth", "onAutoForward": "silent" },
+		"6801": { "label": "System", "onAutoForward": "silent" },
+		"6806": { "label": "Project", "onAutoForward": "silent" },
+		"6808": { "label": "Workflow", "onAutoForward": "silent" },
+		"6888": { "label": "Monitor", "onAutoForward": "silent" }
+	},
+	"postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vscjava.vscode-maven",
+				"Pivotal.vscode-spring-boot",
+				"SonarSource.sonarlint-vscode",
+				"eamodio.gitlens"
+			]
+		}
+	}
+}

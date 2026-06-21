@@ -50,3 +50,10 @@ nbdist/
 application-prod.yml
 
 *.jar
+
+# Frontend build output
+pmhub-ui/dist/
+
+# Course documents (not part of source code)
+要求.txt
+项目计划.md
