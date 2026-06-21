@@ -175,9 +175,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../assets/images/pmhub-bg2.png");
-  background-size: cover;
-  background-position: center center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   .title {
     margin: 0px auto 30px auto;
     text-align: center;
